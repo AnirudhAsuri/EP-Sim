@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody enemyRigidBody;
+    private TargetDetectionSystem targetDetectionSystem;
 
     public bool isWalking;
 
@@ -12,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        targetDetectionSystem = GetComponentInChildren<TargetDetectionSystem>();
         enemyRigidBody = GetComponent<Rigidbody>();
     }
 
@@ -35,9 +37,13 @@ public class EnemyMovement : MonoBehaviour
 
     public void HandleEnemyTurning(Vector3 movementDirection)
     {
-        float targetAngle = Mathf.Atan2(movementDirection.x, movementDirection.z) *Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+        if (targetDetectionSystem.isSearching)
+            return;
+
+        Vector3 directionToTarget = (targetDetectionSystem.currentTargetPosition - transform.position).normalized;
+        directionToTarget.y = 0;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
 
         enemyRigidBody.rotation = Quaternion.Slerp(enemyRigidBody.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }    
+    }   
 }
