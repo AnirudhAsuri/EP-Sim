@@ -14,7 +14,7 @@ public class EnemyAIManager : MonoBehaviour
     private LayerMask playerMask;
     [SerializeField] private Collider playerCollider;
     
-    private Vector3 directionToTarget;
+    public Vector3 directionToTarget;
     private Vector3 targetPositionCached;
     [SerializeField] private bool showInterestGizmo = false;
 
@@ -37,7 +37,7 @@ public class EnemyAIManager : MonoBehaviour
         interestMap = new float[Directions.eightDirections.Count];
     }
 
-    void FixedUpdate()
+    public void FinalAIUpdator()
     {
         targetPosition = targetDetectionSystem.currentTargetPosition;
 
@@ -49,9 +49,6 @@ public class EnemyAIManager : MonoBehaviour
 
             movementDirection = HandleContext();
         }
-
-        else
-            movementDirection = Vector3.zero;
     }
 
     public float[] HandleDangerMap()

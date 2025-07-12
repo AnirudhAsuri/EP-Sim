@@ -35,7 +35,6 @@ public class TargetDetectionSystem : MonoBehaviour
 
     private void Start()
     {
-        lastSeenTargetPosition = transform.position;
         playerObject = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
@@ -148,10 +147,29 @@ public class TargetDetectionSystem : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (!showRadiusGizmo)
-            return;
+        if (!showRadiusGizmo) return;
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
+
+        Gizmos.color = Color.cyan;
+        Vector3 forward = transform.forward;
+        Vector3 leftBoundary = Quaternion.Euler(0f, -angle * 0.5f, 0f) * forward;
+        Vector3 rightBoundary = Quaternion.Euler(0f, angle * 0.5f, 0f) * forward;
+
+        Gizmos.DrawRay(transform.position, leftBoundary * radius);
+        Gizmos.DrawRay(transform.position, rightBoundary * radius);
+        int steps = Mathf.Max(5, Mathf.CeilToInt(angle / 10f)); 
+        Vector3 prevDir = leftBoundary;
+        for (int i = 1; i <= steps; i++)
+        {
+            float stepAngle = -angle * 0.5f + (angle / steps) * i;
+            Vector3 nextDir = Quaternion.Euler(0f, stepAngle, 0f) * forward;
+            Gizmos.DrawLine(transform.position + prevDir * radius,
+                            transform.position + nextDir * radius);
+            prevDir = nextDir;
+        }
     }
+
 
 }
