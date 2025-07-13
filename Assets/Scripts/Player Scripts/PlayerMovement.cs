@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerGroundCheck playerGroundCheck;
     private Transform cameraTranform;
 
-    private Rigidbody playerRigidBody;
+    public Rigidbody playerRigidBody;
 
     [SerializeField] private InputActionReference movementAction;
     [SerializeField] private InputActionReference jumpAction;
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float targetAngle;
 
-            targetAngle = Mathf.Atan2(playerRigidBody.velocity.x, playerRigidBody.velocity.z) * Mathf.Rad2Deg;
+            targetAngle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
 
             playerRigidBody.MoveRotation(Quaternion.Slerp(playerRigidBody.rotation, targetRotation, rotationSpeed * Time.deltaTime));

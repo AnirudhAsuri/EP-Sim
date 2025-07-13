@@ -23,7 +23,8 @@ public class PlayerManager : MonoBehaviour
         if (playerGroundCheck.isGrounded)
             playerMovement.HandlePlayerMovement();
 
-        playerMovement.HandlePlayerTurning(playerMovement.movementDir);
+        if(playerMovement.movementInput.magnitude > 0.1f)
+            playerMovement.HandlePlayerTurning(playerMovement.movementDir);
         playerGroundCheck.HandleGroundCheck();
         playerAnimations.HandleWalkingAnimations();
     }

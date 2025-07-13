@@ -40,7 +40,7 @@ public class EnemyAIManager : MonoBehaviour
     public void FinalAIUpdator()
     {
         targetPosition = targetDetectionSystem.currentTargetPosition;
-
+        directionToTarget.y = 0f;
         if ((targetPosition - transform.position).magnitude > 0.1f)
         {
             directionToTarget = targetPosition - transform.position;
@@ -83,8 +83,7 @@ public class EnemyAIManager : MonoBehaviour
     public float[] HandleInterestMap()
     {
         interestMapTemp = new float[Directions.eightDirections.Count];
-        float distanceToTarget = directionToTarget.magnitude;
-
+        
         for(int i = 0; i < interestMap.Length; i++)
         {
             float result = Vector3.Dot(directionToTarget.normalized, Directions.eightDirections[i]);

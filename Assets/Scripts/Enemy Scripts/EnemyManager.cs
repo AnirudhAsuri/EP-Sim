@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    private EnemyAnimations enemyAnimations;
     private EnemyAIManager enemyAIManager;
     private EnemyMovement enemyMovement;
     private TargetDetectionSystem targetDetectionSystem;
+    private EnemyDeath enemyDeath;
+    private EnemyHealth enemyHealth;
+    private EnemyAttacking enemyAttacking;
 
     private bool hasSeenPlayer = false;
 
@@ -22,14 +26,20 @@ public class EnemyManager : MonoBehaviour
     {
         currentState = AIState.Idle;
 
+        enemyAnimations = GetComponentInChildren<EnemyAnimations>();
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAIManager = GetComponent<EnemyAIManager>();
         targetDetectionSystem = GetComponentInChildren<TargetDetectionSystem>();
+        enemyDeath = GetComponent<EnemyDeath>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        enemyAttacking = GetComponent<EnemyAttacking>();
     }
+
     private void FixedUpdate()
     {
         enemyMovement.HandleEnemyMovement(enemyAIManager.movementDirection);
-        
+        enemyAnimations.HandleEnemyWalkingAnimation();
+        enemyAttacking.HandleEnemyAttacks();
 
         CheckForEnemyAwareness();
 
@@ -44,6 +54,11 @@ public class EnemyManager : MonoBehaviour
                 enemyAIManager.FinalAIUpdator();
                 enemyMovement.HandleEnemyTurning(enemyAIManager.movementDirection);
                 break;
+        }
+
+        if(enemyHealth.currentHealth <= 0)
+        {
+            enemyDeath.SwitchBodies();
         }
     }
 

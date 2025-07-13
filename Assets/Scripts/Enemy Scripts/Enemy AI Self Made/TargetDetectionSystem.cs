@@ -12,8 +12,6 @@ public class TargetDetectionSystem : MonoBehaviour
 
     [SerializeField] private bool showRadiusGizmo = false;
 
-    private GameObject playerObject;
-
     [SerializeField] private float radius;
 
     [Range(0, 360)]
@@ -35,7 +33,6 @@ public class TargetDetectionSystem : MonoBehaviour
 
     private void Start()
     {
-        playerObject = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
 
@@ -145,6 +142,13 @@ public class TargetDetectionSystem : MonoBehaviour
         }
     }*/
 
+    public void AlertFromAttack(Vector3 attackerPosition)
+    {
+        currentTargetPosition = attackerPosition;
+        targetInVision = true;
+        lastSeenTargetPosition = attackerPosition;
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (!showRadiusGizmo) return;
@@ -170,6 +174,4 @@ public class TargetDetectionSystem : MonoBehaviour
             prevDir = nextDir;
         }
     }
-
-
 }

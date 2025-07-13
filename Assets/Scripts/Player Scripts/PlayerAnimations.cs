@@ -9,27 +9,37 @@ public class PlayerAnimations : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerGroundCheck playerGroundCheck;
 
+    private string walkingParameter;
+    private string groundedParameter;
+    private string leftAttackTrigger;
+    private string rightAttackTrigger;
+
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
         playerMovement = GetComponentInParent<PlayerMovement>();
         playerGroundCheck = GetComponentInParent<PlayerGroundCheck>();
+
+        walkingParameter = "IsWalking";
+        groundedParameter = "IsGrounded";
+        leftAttackTrigger = "Left Attack Trigger";
+        rightAttackTrigger = "Right Attack Trigger";
     }
     public void HandleWalkingAnimations()
     {
-        playerAnimator.SetBool("IsWalking", playerMovement.isWalking);
+        playerAnimator.SetBool(walkingParameter, playerMovement.isWalking);
 
-        playerAnimator.SetBool("IsGrounded", playerGroundCheck.isGrounded);
+        playerAnimator.SetBool(groundedParameter, playerGroundCheck.isGrounded);
     }
 
-    public void ActivateLeftAttack()
+    public void LeftAttack()
     {
-        playerAnimator.SetTrigger("Left Attack Trigger");
+        playerAnimator.SetTrigger(leftAttackTrigger);
     }
 
-    public void ActivateRightAttack()
+    public void RightAttack()
     {
-        playerAnimator.SetTrigger("Right Attack Trigger");
+        playerAnimator.SetTrigger(rightAttackTrigger);
     }
 
     public void ActivateLeftAttackCollider()

@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Rigidbody enemyRigidBody;
+    public Rigidbody enemyRigidBody;
     private TargetDetectionSystem targetDetectionSystem;
 
     public bool isWalking;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float maxSpeed;
-    [SerializeField] private float rotationSpeed;
+    public float rotationSpeed;
 
     private void Start()
     {
@@ -45,5 +45,5 @@ public class EnemyMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
 
         enemyRigidBody.rotation = Quaternion.Slerp(enemyRigidBody.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }   
+    }
 }
