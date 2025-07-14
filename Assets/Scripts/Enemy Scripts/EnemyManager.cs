@@ -11,13 +11,15 @@ public class EnemyManager : MonoBehaviour
     private EnemyDeath enemyDeath;
     private EnemyHealth enemyHealth;
     private EnemyAttacking enemyAttacking;
+    private EnemyFatigue enemyFatigue;
 
     private bool hasSeenPlayer = false;
 
     public enum AIState
     {
         Idle,
-        Chasing
+        Chasing,
+        Tired
     }
 
     AIState currentState;
@@ -33,6 +35,7 @@ public class EnemyManager : MonoBehaviour
         enemyDeath = GetComponent<EnemyDeath>();
         enemyHealth = GetComponent<EnemyHealth>();
         enemyAttacking = GetComponent<EnemyAttacking>();
+        enemyFatigue = GetComponent<EnemyFatigue>();
     }
 
     private void FixedUpdate()
@@ -47,12 +50,18 @@ public class EnemyManager : MonoBehaviour
         {
             case AIState.Idle:
                 enemyAIManager.movementDirection = Vector3.zero;
+                enemyFatigue.HandleFatigueChange();
                 break;
 
 
             case AIState.Chasing:
                 enemyAIManager.FinalAIUpdator();
+                enemyFatigue.HandleFatigueChange();
                 enemyMovement.HandleEnemyTurning(enemyAIManager.movementDirection);
+                break;
+
+            case AIState.Tired:
+                enemyFatigue.HandleEnemyTiredState();
                 break;
         }
 
