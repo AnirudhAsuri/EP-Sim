@@ -21,6 +21,9 @@ public class EnemyAttacking : MonoBehaviour
     public float pushBackMeasure;
     public Vector3 pushBackDirection;
 
+    [SerializeField] private ParticleSystem hitParticles;
+    private ParticleSystem hitParticlesInstance;
+
     private void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
@@ -80,8 +83,14 @@ public class EnemyAttacking : MonoBehaviour
             {
                 playerHealth.TakeDamage(attackDamage);
                 other.attachedRigidbody.AddForce(pushBackMeasure * pushBackDirection, ForceMode.Impulse);
+
+                if(hitParticles != null)
+                {
+                    Vector3 hitPosition = other.ClosestPoint(transform.position);
+
+                    hitParticlesInstance = Instantiate(hitParticles, hitPosition, Quaternion.identity);
+                }
             }
-            
         }
         pushBackMeasure = basePushBack;
         attackDamage = baseAttackDamage;

@@ -8,17 +8,25 @@ public class EnemyFatigue : MonoBehaviour
 
     [SerializeField] private GameObject normalEyebrows;
     [SerializeField] private GameObject tiredEyebrows;
-    [SerializeField] private float totalFatigue;
-    [SerializeField] private float currentFatigue;
+    public float totalFatigue;
+    public float currentFatigue;
 
     [SerializeField] private float fatigueDrainRate;
     [SerializeField] private float fatigueRiseRate;
+
+    private float maxEnemySpeed;
+    private float enemySpeed;
+
+    private bool isInTiredState;
 
     private void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
 
         currentFatigue = totalFatigue;
+
+        maxEnemySpeed = enemyMovement.maxSpeed;
+        enemySpeed = enemyMovement.movementSpeed;
     }
 
     public void HandleFatigueChange()
@@ -42,15 +50,33 @@ public class EnemyFatigue : MonoBehaviour
 
     public void HandleEnemyTiredState()
     {
-        currentFatigue = 0f;
-        HandleFatigueRise();
+        if(!isInTiredState)
+        {
+            isInTiredState = true;
 
-        normalEyebrows.SetActive(false);
-        tiredEyebrows.SetActive(true);
+            currentFatigue = 0f;
+            normalEyebrows.SetActive(false);
+            tiredEyebrows.SetActive(true);
+            HandleTiredMovement();
+        }
+        
+        HandleFatigueRise();  
     }
 
     private void HandleTiredMovement()
     {
+        enemyMovement.maxSpeed = maxEnemySpeed / 2;
 
+        enemyMovement.movementSpeed = enemySpeed / 2;
+    }
+
+    public void HandleTiredStateExit()
+    {
+        isInTiredState = false;
+        normalEyebrows.SetActive(true);
+        tiredEyebrows.SetActive(false);
+
+        enemyMovement.maxSpeed = maxEnemySpeed;
+        enemyMovement.movementSpeed = enemySpeed;
     }
 }

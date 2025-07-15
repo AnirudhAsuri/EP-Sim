@@ -7,8 +7,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool isWalking;
 
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private float maxSpeed;
+    public float movementSpeed;
+    public float maxSpeed;
     public float rotationSpeed;
 
     private void Start()

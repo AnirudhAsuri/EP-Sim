@@ -18,7 +18,7 @@ public class EnemyHealth : Health
 
     override
         public void TakeDamage(int damage)
-    {
+        {
         currentHealth -= damage;
-    }
+        }
 }

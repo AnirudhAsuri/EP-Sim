@@ -22,6 +22,9 @@ public class PlayerAttacking : MonoBehaviour
     [SerializeField] private int baseAttackDamage;
     [SerializeField] private float pushBackMultiplier;
 
+    [SerializeField] private ParticleSystem hitParticles;
+    private ParticleSystem hitParticlesInstance;
+
     private void Start()
     {
         playerAnimations = GetComponentInChildren<PlayerAnimations>();
@@ -74,6 +77,13 @@ public class PlayerAttacking : MonoBehaviour
                 enemyHealth.TakeDamage(attackDamage);
                 other.attachedRigidbody.AddForce(pushBackMeasure * pushBackDirection, ForceMode.Impulse);
                 Debug.Log(pushBackMeasure);
+
+                if(hitParticles != null)
+                {
+                    Vector3 hitPosition = other.ClosestPoint(transform.position);
+
+                    hitParticlesInstance = Instantiate(hitParticles, hitPosition, Quaternion.identity);
+                }
             }
 
             TargetDetectionSystem detectionSystem = other.GetComponentInChildren<TargetDetectionSystem>();

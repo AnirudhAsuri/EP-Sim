@@ -42,9 +42,12 @@ public class EnemyManager : MonoBehaviour
     {
         enemyMovement.HandleEnemyMovement(enemyAIManager.movementDirection);
         enemyAnimations.HandleEnemyWalkingAnimation();
-        enemyAttacking.HandleEnemyAttacks();
+        if(currentState != AIState.Tired)
+            enemyAttacking.HandleEnemyAttacks();
 
         CheckForEnemyAwareness();
+
+        CheckForTiredState();
 
         switch(currentState)
         {
@@ -61,7 +64,16 @@ public class EnemyManager : MonoBehaviour
                 break;
 
             case AIState.Tired:
+                enemyAIManager.FinalAIUpdator();
                 enemyFatigue.HandleEnemyTiredState();
+                enemyMovement.HandleEnemyMovement(enemyAIManager.movementDirection);
+                enemyMovement.HandleEnemyTurning(enemyAIManager.movementDirection);
+
+                if(CheckIfEnemyHasRecoveredFromFatigue())
+                {
+                    enemyFatigue.HandleTiredStateExit();
+                    StateSwitcher(AIState.Chasing);
+                }
                 break;
         }
 
@@ -81,6 +93,19 @@ public class EnemyManager : MonoBehaviour
             StateSwitcher(AIState.Chasing);
         }
     }
+
+    private bool CheckIfEnemyHasRecoveredFromFatigue()
+    {
+        return enemyFatigue.currentFatigue >= enemyFatigue.totalFatigue;
+    }
+
+    private void CheckForTiredState()
+    {
+        if(enemyFatigue.currentFatigue <= 0f)
+        {
+            StateSwitcher(AIState.Tired);
+        }
+    }    
 
     public void StateSwitcher(AIState newState)
     {
