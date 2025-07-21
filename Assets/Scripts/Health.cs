@@ -6,12 +6,12 @@ public abstract class Health : MonoBehaviour
 {
     public int totalHealth;
 
-    public int currentHealth;
+    public float currentHealth;
 
     public void InitialiseTotalHealth()
     {
         currentHealth = totalHealth;
     }
 
-    public abstract void TakeDamage(int damage);
+    public abstract void TakeDamage(float damage);
 }

@@ -8,18 +8,21 @@ public class EnemyAttacking : MonoBehaviour
     private EnemyAnimations enemyAnimations;
     private EnemyAIManager enemyAIManager;
     private TargetDetectionSystem targetDetectionSystem;
+    private EnemyFatigue enemyFatigue;
 
     private string playerTag;
     [SerializeField] private float minimumAttackDistance;
 
-    [SerializeField] private int attackDamageMultiplier;
-    [SerializeField] private int baseAttackDamage;
-    [SerializeField] private int basePushBack;
+    [SerializeField] private float attackDamageMultiplier;
+    [SerializeField] private float baseAttackDamage;
+    [SerializeField] private float basePushBack;
     [SerializeField] private float pushBackMultiplier;
 
-    private int attackDamage;
+    private float attackDamage;
     public float pushBackMeasure;
     public Vector3 pushBackDirection;
+
+    [SerializeField] private float fatigueAttackRecoveryAmount;
 
     [SerializeField] private ParticleSystem hitParticles;
     private ParticleSystem hitParticlesInstance;
@@ -30,6 +33,7 @@ public class EnemyAttacking : MonoBehaviour
         enemyAIManager = GetComponent<EnemyAIManager>();
         targetDetectionSystem = GetComponentInChildren<TargetDetectionSystem>();
         enemyAnimations = GetComponentInChildren<EnemyAnimations>();
+        enemyFatigue = GetComponent<EnemyFatigue>();
 
         playerTag = "Player";
         attackDamage = baseAttackDamage;
@@ -83,6 +87,11 @@ public class EnemyAttacking : MonoBehaviour
             {
                 playerHealth.TakeDamage(attackDamage);
                 other.attachedRigidbody.AddForce(pushBackMeasure * pushBackDirection, ForceMode.Impulse);
+
+                if(enemyFatigue.currentFatigue != enemyFatigue.totalFatigue)
+                {
+                    enemyFatigue.currentFatigue += fatigueAttackRecoveryAmount;
+                }    
 
                 if(hitParticles != null)
                 {

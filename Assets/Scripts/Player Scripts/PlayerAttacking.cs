@@ -3,24 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerAttacking : MonoBehaviour
 {
     private String EnemyTag;
 
+    private CinemachineImpulseSource cinemachineImpulseSource;
     private PlayerAnimations playerAnimations;
     private PlayerMovement playerMovement;
 
     public InputActionReference leftAttack;
     public InputActionReference rightAttack;
 
-    [SerializeField] private int attackDamageMultiplier;
-    private int attackDamage;
+    [SerializeField] private float attackDamageMultiplier;
+    private float attackDamage;
     public float pushBackMeasure;
     public Vector3 pushBackDirection;
-    [SerializeField] private int basePushBack;
-    [SerializeField] private int baseAttackDamage;
+    [SerializeField] private float basePushBack;
+    [SerializeField] private float baseAttackDamage;
     [SerializeField] private float pushBackMultiplier;
+
+    private float screenShakeForce;
 
     [SerializeField] private ParticleSystem hitParticles;
     private ParticleSystem hitParticlesInstance;
@@ -29,6 +33,7 @@ public class PlayerAttacking : MonoBehaviour
     {
         playerAnimations = GetComponentInChildren<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
+        cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
 
         attackDamage = baseAttackDamage;
         pushBackMeasure = basePushBack;
@@ -107,5 +112,9 @@ public class PlayerAttacking : MonoBehaviour
 
         attackDamage += attackDamageMultiplier * playerSpeed;
         pushBackMeasure += (pushBackMultiplier * attackDamage);
+
+        screenShakeForce = attackDamage * 0.01f;
+
+        cinemachineImpulseSource.GenerateImpulseWithForce(screenShakeForce);
     }
 }
