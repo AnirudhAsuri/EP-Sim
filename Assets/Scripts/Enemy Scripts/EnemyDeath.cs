@@ -5,13 +5,20 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     [SerializeField] private GameObject enemyDeadBody;
+    private PlayerHealth playerHealth;
     private EnemyHealth enemyHealth;
 
     private Vector3 deathPushBackDirection;
 
-    private void Start()
+    private void Awake()
     {
         enemyHealth = GetComponent<EnemyHealth>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+    }
+
+    public void HandlePlayerHealthRegen()
+    {
+        playerHealth.currentHealth += enemyHealth.totalHealth * 0.1f;
     }
 
     public void SwitchBodies()

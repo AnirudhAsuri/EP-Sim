@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
 
     AIState currentState;
 
-    private void Start()
+    private void Awake()
     {
         currentState = AIState.Idle;
 
@@ -80,6 +80,7 @@ public class EnemyManager : MonoBehaviour
         if(enemyHealth.currentHealth <= 0)
         {
             enemyDeath.SwitchBodies();
+            enemyDeath.HandlePlayerHealthRegen();
         }
     }
 

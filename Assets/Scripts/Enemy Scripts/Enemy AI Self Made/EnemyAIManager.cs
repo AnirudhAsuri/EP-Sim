@@ -28,7 +28,7 @@ public class EnemyAIManager : MonoBehaviour
     private float[] dangerMapTemp = null;
     private float[] interestMapTemp = null;
 
-    void Start()
+    void Awake()
     {
         targetDetectionSystem = GetComponentInChildren<TargetDetectionSystem>();
         obstacleDetectionSystem = GetComponentInChildren<ObstacleDetectionSystem>();

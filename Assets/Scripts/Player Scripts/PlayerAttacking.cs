@@ -7,7 +7,7 @@ using Cinemachine;
 
 public class PlayerAttacking : MonoBehaviour
 {
-    private String EnemyTag;
+    private string EnemyTag;
 
     private CinemachineImpulseSource cinemachineImpulseSource;
     private PlayerAnimations playerAnimations;
@@ -26,7 +26,8 @@ public class PlayerAttacking : MonoBehaviour
 
     private float screenShakeForce;
 
-    [SerializeField] private ParticleSystem hitParticles;
+    private GameObject hitParticlesPrefab;
+    private ParticleSystem hitParticles;
     private ParticleSystem hitParticlesInstance;
 
     private void Start()
@@ -39,6 +40,13 @@ public class PlayerAttacking : MonoBehaviour
         pushBackMeasure = basePushBack;
 
         EnemyTag = "Enemy";
+
+        hitParticlesPrefab = Resources.Load<GameObject>("Particles/HitParticles");
+
+        if (hitParticlesPrefab != null)
+        {
+            hitParticles = hitParticlesPrefab.GetComponent<ParticleSystem>();
+        }
     }
 
     private void OnEnable()

@@ -19,7 +19,7 @@ public class EnemyFatigue : MonoBehaviour
 
     private bool isInTiredState;
 
-    private void Start()
+    private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
 

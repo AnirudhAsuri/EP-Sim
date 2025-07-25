@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     public float maxSpeed;
     public float rotationSpeed;
 
-    private void Start()
+    private void Awake()
     {
         targetDetectionSystem = GetComponentInChildren<TargetDetectionSystem>();
         enemyRigidBody = GetComponent<Rigidbody>();

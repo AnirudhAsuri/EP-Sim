@@ -5,14 +5,13 @@ public class EnemyHealth : Health
     public float pushBackMeasure;
     public Vector3 pushBackDirection;
 
-    private void Start()
+    private void Awake()
     {
         InitialiseTotalHealth();
     }
 
-    override
-        public void TakeDamage(float damage)
-        {
-            currentHealth -= damage;
-        }
+    public override void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+    }
 }

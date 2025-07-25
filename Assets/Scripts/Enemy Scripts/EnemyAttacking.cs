@@ -24,10 +24,11 @@ public class EnemyAttacking : MonoBehaviour
 
     [SerializeField] private float fatigueAttackRecoveryAmount;
 
-    [SerializeField] private ParticleSystem hitParticles;
+    private GameObject hitParticlesPrefab;
+    private ParticleSystem hitParticles;
     private ParticleSystem hitParticlesInstance;
 
-    private void Start()
+    private void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         enemyAIManager = GetComponent<EnemyAIManager>();
@@ -38,6 +39,13 @@ public class EnemyAttacking : MonoBehaviour
         playerTag = "Player";
         attackDamage = baseAttackDamage;
         pushBackMeasure = basePushBack;
+
+        hitParticlesPrefab = Resources.Load<GameObject>("Particles/HitParticles");
+
+        if (hitParticlesPrefab != null)
+        {
+            hitParticles = hitParticlesPrefab.GetComponent<ParticleSystem>();
+        }
     }
 
     public void HandleEnemyAttacks()
