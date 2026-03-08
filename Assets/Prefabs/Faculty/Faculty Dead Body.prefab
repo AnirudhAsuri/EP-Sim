@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 439129730745125447}
   - component: {fileID: 625098789992663096}
   - component: {fileID: 7947889238681849118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnimator: {fileID: 0}
+  leftPunchCollider: {fileID: 0}
+  rightPunchCollider: {fileID: 0}
 --- !u!1 &95314692499713546
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ GameObject:
   - component: {fileID: 1465073228083077800}
   - component: {fileID: 4282307556268347491}
   - component: {fileID: 1539525951568173139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468010727654070213}
   - component: {fileID: 1388142582246502502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +271,7 @@ GameObject:
   - component: {fileID: 2271966585863414991}
   - component: {fileID: 7295980443083650074}
   - component: {fileID: 304906098298959471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3601983602559668294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Dead Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +408,7 @@ GameObject:
   - component: {fileID: 1001463306923696866}
   - component: {fileID: 7892847208045256880}
   - component: {fileID: 1725836213736818570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Faculty Dead Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 257746564066652213}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detectors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9177955661370477534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Dead Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +560,7 @@ GameObject:
   - component: {fileID: 8480186263702939498}
   - component: {fileID: 348989231907226578}
   - component: {fileID: 8539102091401926609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5890186356251583442}
   - component: {fileID: 4417372238942427461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Target Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +723,7 @@ GameObject:
   - component: {fileID: 7393728369872127687}
   - component: {fileID: 3043771955047604514}
   - component: {fileID: 6173772823028466464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +828,7 @@ GameObject:
   - component: {fileID: 6047210432785223099}
   - component: {fileID: 6792372053760891342}
   - component: {fileID: 388563049826680778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +933,7 @@ GameObject:
   - component: {fileID: 1688523447309595890}
   - component: {fileID: 7860395578840782970}
   - component: {fileID: 2264483092149866916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +1038,7 @@ GameObject:
   - component: {fileID: 2056207922668040563}
   - component: {fileID: 7552735496540394742}
   - component: {fileID: 6190974314750202609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}

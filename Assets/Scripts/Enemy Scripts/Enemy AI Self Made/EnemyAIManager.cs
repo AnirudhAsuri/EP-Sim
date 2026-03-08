@@ -13,7 +13,9 @@ public class EnemyAIManager : MonoBehaviour
 
     private LayerMask playerMask;
     [SerializeField] private Collider playerCollider;
-    
+
+    public float distanceToTarget; //For distance in other scripts
+
     public Vector3 directionToTarget;
     private Vector3 targetPositionCached;
     [SerializeField] private bool showInterestGizmo = false;
@@ -27,6 +29,11 @@ public class EnemyAIManager : MonoBehaviour
     [SerializeField] private bool showObstacleGizmo = false;
     private float[] dangerMapTemp = null;
     private float[] interestMapTemp = null;
+
+    private void Update()
+    {
+        distanceToTarget = Vector3.Distance(targetPosition, transform.position);
+    }
 
     void Awake()
     {
@@ -165,5 +172,5 @@ public class EnemyAIManager : MonoBehaviour
         new Vector3(-1, 0, 0).normalized,
         new Vector3(-1, 0, 1).normalized
         };
-    }    
+    }
 }

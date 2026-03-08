@@ -89,7 +89,6 @@ public class PlayerAttacking : MonoBehaviour
             {
                 enemyHealth.TakeDamage(attackDamage);
                 other.attachedRigidbody.AddForce(pushBackMeasure * pushBackDirection, ForceMode.Impulse);
-                Debug.Log(pushBackMeasure);
 
                 if(hitParticles != null)
                 {

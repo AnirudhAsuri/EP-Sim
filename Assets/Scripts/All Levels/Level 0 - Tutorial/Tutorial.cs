@@ -6,6 +6,7 @@ using TMPro;
 
 public class Tutorial : MonoBehaviour
 {
+
     [SerializeField] private TextMeshProUGUI instructionsText;
     private PlayerHealth playerHealth;
 
@@ -49,8 +50,9 @@ public class Tutorial : MonoBehaviour
         tutorialMessages.Add("If you lose some health, you can recover it by killing enemies"); //10
         tutorialMessages.Add("Kill the dummy to regain some health"); //11
         tutorialMessages.Add("Great Job!\nYou are back to full health"); //12
-        tutorialMessages.Add("Now go fight the real enemy"); //13
+        tutorialMessages.Add("Now go fight the real enemy\nEnemies can run only for a while before they get tired and can't attack you anymore"); //13
         tutorialMessages.Add(""); //14
+        tutorialMessages.Add("Amazing job!! You have finished the tutorial!! \nYou may now exit the tutorial using the 'Esc' key to open the Pause Menu"); //15
 
         currentTextPointer = 0;
         ChangeInstructionText(currentTextPointer);
@@ -68,7 +70,7 @@ public class Tutorial : MonoBehaviour
         if(currentTextPointer == 0 && timeSinceMessage >= 3f)
         {
             IncrementCurrentTextPointer();
-            GameObject newMoveToSpot = Instantiate(moveToSpot, firstMoveToSpot, transform.rotation);
+            Instantiate(moveToSpot, firstMoveToSpot, transform.rotation);
         }
 
         if(currentTextPointer == 2 && timeSinceMessage >= 3f)
@@ -89,7 +91,7 @@ public class Tutorial : MonoBehaviour
         if(currentTextPointer == 7 && timeSinceMessage >= 3f)
         {
             IncrementCurrentTextPointer();
-            GameObject newDummyEnemy = Instantiate(dummyEnemy, firstMoveToSpot, transform.rotation);
+            Instantiate(dummyEnemy, firstMoveToSpot, transform.rotation);
         }
 
         if(currentTextPointer == 9 && timeSinceMessage>=3f)
@@ -111,7 +113,12 @@ public class Tutorial : MonoBehaviour
         if(currentTextPointer == 13 && timeSinceMessage >= 3f)
         {
             IncrementCurrentTextPointer();
-            GameObject newAvgEnemy = Instantiate(averageStudentEnemy, firstMoveToSpot, transform.rotation);
+            Instantiate(averageStudentEnemy, firstMoveToSpot, transform.rotation);
+        }
+
+        if(currentTextPointer == 14 && FindAnyObjectByType<EnemyHealth>() == null)
+        {
+            IncrementCurrentTextPointer();
         }
     }
 

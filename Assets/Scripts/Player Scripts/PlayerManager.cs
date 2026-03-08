@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerDeath playerDeath;
     private PlayerStamina playerStamina;
     private PlayerUI playerUI;
+    private ButtonSceneChanger buttonSceneChanger;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
         playerDeath = GetComponent<PlayerDeath>();
         playerStamina = GetComponent<PlayerStamina>();
         playerUI = GetComponent<PlayerUI>();
+        buttonSceneChanger = FindAnyObjectByType<ButtonSceneChanger>();
     }
     private void FixedUpdate()
     {

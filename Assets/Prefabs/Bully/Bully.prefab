@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248423602445775426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4603048038755972647}
   - component: {fileID: 1124645358128444942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4224399634402564975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 6511977123807902163}
   - component: {fileID: 2006252319918500461}
   - component: {fileID: 6445450642488404329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 6145933259751132971}
   - component: {fileID: 6748195694859335209}
   - component: {fileID: 2508162588365998896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189835963354825906}
   - component: {fileID: 8206922471670552024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Attack Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 3394035883050121579}
   - component: {fileID: 5002854053474748067}
   - component: {fileID: 2293506740778382410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 1684457579686272778}
   - component: {fileID: 1305380811838397918}
   - component: {fileID: 3954394883998748331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 4848747494849227472}
   - component: {fileID: 7294113933874688984}
   - component: {fileID: 701011216527007025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 548955025955434296}
   - component: {fileID: 2547288744528374676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Attack Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 2469098774680295347}
   - component: {fileID: 1477631976481183686}
   - component: {fileID: 2931584815462598706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 2528113890971690709}
   - component: {fileID: 8234448785068498823}
   - component: {fileID: 5615401570142011679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6695130741253445133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Detectors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 1687048120469156598}
   - component: {fileID: 1127890132457842895}
   - component: {fileID: 6424906893627464022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 2282141534585667053}
   - component: {fileID: 6870275351474820680}
   - component: {fileID: 7525653555092811071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 7259806224799454754}
   - component: {fileID: 2115780482317134965}
   - component: {fileID: 7172270187763906985}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2413818165094710767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Normal Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,7 +1376,7 @@ GameObject:
   - component: {fileID: 1962857514365496297}
   - component: {fileID: 8469228448018299293}
   - component: {fileID: 4416608257908059372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1482,7 +1482,7 @@ GameObject:
   - component: {fileID: 5730142787592261306}
   - component: {fileID: 3983588977103096297}
   - component: {fileID: 8427972140357201400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 8587424912984925632}
   - component: {fileID: 6353196971980834443}
   - component: {fileID: 3275285845505386260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1692,7 +1692,7 @@ GameObject:
   - component: {fileID: 9186104989951993017}
   - component: {fileID: 6592494084413637163}
   - component: {fileID: 6251128507323589580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278409420802853419}
   - component: {fileID: 4529273811256467855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Target Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1852,7 +1852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4620903978155754662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tired Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1894,7 +1894,7 @@ GameObject:
   - component: {fileID: 7896386347515706863}
   - component: {fileID: 8306196678369806300}
   - component: {fileID: 6372317568349727}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bully
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2001,6 +2001,7 @@ MonoBehaviour:
   radius: 20
   agentColliderSize: 2.55
   playerCollider: {fileID: 0}
+  distanceToTarget: 0
   directionToTarget: {x: 0, y: 0, z: 0}
   showInterestGizmo: 0
   movementDirection: {x: 0, y: 0, z: 0}
@@ -2018,6 +2019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1de2464eff01d9468c4e04cc9622e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeEnemyLayer: 8
+  rangedEnemyLayer: 9
 --- !u!114 &3849072680817334452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,6 +2037,7 @@ MonoBehaviour:
   currentHealth: 0
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}
+  hitAudioClip: {fileID: 8300000, guid: 68efe2a371744d44fbbfb7efdff58409, type: 3}
 --- !u!114 &7896386347515706863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,7 +2071,6 @@ MonoBehaviour:
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}
   fatigueAttackRecoveryAmount: 0
-  hitParticles: {fileID: 4056361812111176291, guid: 50e423c46c96ed54693297db06d7b531, type: 3}
 --- !u!114 &6372317568349727
 MonoBehaviour:
   m_ObjectHideFlags: 0

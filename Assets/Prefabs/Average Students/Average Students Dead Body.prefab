@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8353884405436876882}
   - component: {fileID: 6514255871306186836}
   - component: {fileID: 8463145253564631072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248423602445775426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4224399634402564975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 888480402086403974}
   - component: {fileID: 2752236623113648106}
   - component: {fileID: 6511977123807902163}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 6145933259751132971}
   - component: {fileID: 6748195694859335209}
   - component: {fileID: 2508162588365998896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 204428796664627406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dead Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189835963354825906}
   - component: {fileID: 8206922471670552024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Attack Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 3394035883050121579}
   - component: {fileID: 5002854053474748067}
   - component: {fileID: 2293506740778382410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 1684457579686272778}
   - component: {fileID: 1305380811838397918}
   - component: {fileID: 3954394883998748331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8650448241067469577}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Dead Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 4848747494849227472}
   - component: {fileID: 7294113933874688984}
   - component: {fileID: 701011216527007025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 548955025955434296}
   - component: {fileID: 2547288744528374676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Attack Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 435654690720772226}
   - component: {fileID: 3168895023327978072}
   - component: {fileID: 3146163829677964866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 2469098774680295347}
   - component: {fileID: 1477631976481183686}
   - component: {fileID: 2931584815462598706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Fist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 2528113890971690709}
   - component: {fileID: 8234448785068498823}
   - component: {fileID: 5615401570142011679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 7953973792080156229}
   - component: {fileID: 8571200825514204951}
   - component: {fileID: 7555613980771982274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,7 +1287,7 @@ GameObject:
   - component: {fileID: 1687048120469156598}
   - component: {fileID: 1127890132457842895}
   - component: {fileID: 6424906893627464022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 2282141534585667053}
   - component: {fileID: 6870275351474820680}
   - component: {fileID: 7525653555092811071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 7259806224799454754}
   - component: {fileID: 2115780482317134965}
   - component: {fileID: 7172270187763906985}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1599,7 +1599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2413818165094710767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Normal Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1637,7 +1637,7 @@ GameObject:
   - component: {fileID: 8749429078391045413}
   - component: {fileID: 2197463034151979191}
   - component: {fileID: 4459025761337681730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1739,7 +1739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3689373349025743874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Dead Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 1962857514365496297}
   - component: {fileID: 8469228448018299293}
   - component: {fileID: 4416608257908059372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1881,7 +1881,7 @@ GameObject:
   - component: {fileID: 5730142787592261306}
   - component: {fileID: 3983588977103096297}
   - component: {fileID: 8427972140357201400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyebrow Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1986,7 +1986,7 @@ GameObject:
   - component: {fileID: 8587424912984925632}
   - component: {fileID: 6353196971980834443}
   - component: {fileID: 3275285845505386260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 9186104989951993017}
   - component: {fileID: 6592494084413637163}
   - component: {fileID: 6251128507323589580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2193,7 +2193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4620903978155754662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tired Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 2056381305104568659}
   - component: {fileID: 8628456043500561835}
   - component: {fileID: 7896386347515706863}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Average Students Dead Body
   m_TagString: Enemy
   m_Icon: {fileID: 0}

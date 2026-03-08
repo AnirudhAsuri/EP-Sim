@@ -14,6 +14,13 @@ public class PlayerAnimations : MonoBehaviour
     private string leftAttackTrigger;
     private string rightAttackTrigger;
 
+    private string idleLeftAttack;
+    private string idleRightAttack;
+    private string runningLeftAttack;
+    private string runningRightAttack;
+
+    [SerializeField] private AudioClip punchAirAudioClip;
+
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
@@ -62,4 +69,8 @@ public class PlayerAnimations : MonoBehaviour
         rightAttackColliderObject.SetActive(false);
     }
 
+    public void PlayPunchSoundEffect()
+    {
+        SoundFXManager.instance.PlaySoundEffect(punchAirAudioClip, transform, 0.3f);
+    }
 }

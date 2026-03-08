@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public int meleeEnemyLayer = 8;
+    public int rangedEnemyLayer = 9;
+
     private EnemyAnimations enemyAnimations;
     private EnemyAIManager enemyAIManager;
     private EnemyMovement enemyMovement;
@@ -11,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     private EnemyDeath enemyDeath;
     private EnemyHealth enemyHealth;
     private EnemyAttacking enemyAttacking;
+    private EnemyRangedAttacking enemyRangedAttacking;
     private EnemyFatigue enemyFatigue;
 
     private bool hasSeenPlayer = false;
@@ -35,16 +39,24 @@ public class EnemyManager : MonoBehaviour
         enemyDeath = GetComponent<EnemyDeath>();
         enemyHealth = GetComponent<EnemyHealth>();
         enemyAttacking = GetComponent<EnemyAttacking>();
+        enemyRangedAttacking = GetComponent<EnemyRangedAttacking>();
         enemyFatigue = GetComponent<EnemyFatigue>();
     }
 
     private void FixedUpdate()
     {
+        
         enemyMovement.HandleEnemyMovement(enemyAIManager.movementDirection);
         enemyAnimations.HandleEnemyWalkingAnimation();
+        
         if(currentState != AIState.Tired)
-            enemyAttacking.HandleEnemyAttacks();
-
+        {
+            if(enemyAttacking != null)
+                enemyAttacking.HandleEnemyAttacks();
+            if (enemyRangedAttacking != null)
+                enemyRangedAttacking.HandleGunShooting();
+        }
+            
         CheckForEnemyAwareness();
 
         CheckForTiredState();
@@ -55,7 +67,6 @@ public class EnemyManager : MonoBehaviour
                 enemyAIManager.movementDirection = Vector3.zero;
                 enemyFatigue.HandleFatigueChange();
                 break;
-
 
             case AIState.Chasing:
                 enemyAIManager.FinalAIUpdator();

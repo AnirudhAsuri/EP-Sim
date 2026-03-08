@@ -48,6 +48,11 @@ public class EnemyFatigue : MonoBehaviour
         currentFatigue += fatigueRiseRate * Time.deltaTime;
     }
 
+    public void HandleFatigueLoss(float fatigueLossValue)
+    {
+        currentFatigue -= fatigueLossValue;
+    }
+
     public void HandleEnemyTiredState()
     {
         if(!isInTiredState)

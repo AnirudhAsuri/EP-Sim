@@ -61,7 +61,6 @@ GameObject:
   - component: {fileID: 888480402086403974}
   - component: {fileID: 2752236623113648106}
   - component: {fileID: 6511977123807902163}
-  - component: {fileID: 2006252319918500461}
   m_Layer: 0
   m_Name: Enemy Graphics
   m_TagString: Untagged
@@ -136,27 +135,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &2006252319918500461
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700698382154398960}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a805586fc628d4749a7df18b6d13f0ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2232044783913337169
 GameObject:
   m_ObjectHideFlags: 0

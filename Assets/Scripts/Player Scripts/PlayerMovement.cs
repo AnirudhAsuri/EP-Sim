@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         movementInput = movementAction.action.ReadValue<Vector3>();
+        Debug.Log(movementInput);
     }
 
     private void Start()

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Invisible
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - UI
   - Obstacle
   - Post Processing
-  - 
-  - 
+  - Melee Enemy
+  - Ranged Enemy
   - 
   - 
   - 

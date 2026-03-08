@@ -101,7 +101,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -562,7 +562,6 @@ MonoBehaviour:
   basePushBack: 2
   baseAttackDamage: 7
   pushBackMultiplier: 1.2
-  hitParticles: {fileID: 4056361812111176291, guid: 50e423c46c96ed54693297db06d7b531, type: 3}
 --- !u!114 &7362260302897791342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +579,7 @@ MonoBehaviour:
   cinemachineImpulseSource: {fileID: 0}
   damageTaken: 0
   cameraShakeDuration: 0
+  playerHitAudioClip: {fileID: 8300000, guid: 4325d1e616fc58a40a1ba228eea886e6, type: 3}
 --- !u!114 &5005488162696764423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8939705680e06ee4cb43c9ad5e44abbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathScreen: {fileID: 0}
   playerHealthSlider: {fileID: 0}
 --- !u!114 &2871096007765403816
 MonoBehaviour:
@@ -807,7 +808,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -1072,6 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftAttackColliderObject: {fileID: 2352196039259313854}
   rightAttackColliderObject: {fileID: 4036921628894574061}
+  punchAirAudioClip: {fileID: 8300000, guid: c70abbaf5d6c7fd4cb8e16c20dc9d916, type: 3}
 --- !u!1 &8873800842748607013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1282,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

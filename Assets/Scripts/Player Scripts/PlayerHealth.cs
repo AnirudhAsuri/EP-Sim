@@ -12,6 +12,8 @@ public class PlayerHealth : Health
 
     private float screenShakeForce;
 
+    [SerializeField] private AudioClip playerHitAudioClip;
+
     private void Start()
     {
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
@@ -24,6 +26,7 @@ public class PlayerHealth : Health
         screenShakeForce = damage * 0.01f;  
         currentHealth -= damage;
 
+        SoundFXManager.instance.PlaySoundEffect(playerHitAudioClip, transform, damage / 100);
         cinemachineImpulseSource.GenerateImpulseWithForce(screenShakeForce);
     }
 }
