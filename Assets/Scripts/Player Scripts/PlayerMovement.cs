@@ -21,21 +21,27 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float rotationSpeed;
 
+    private ParticleSystem dustParticleSystem;
+    [SerializeField] private float minimumDustSpeed;
+
     public bool isWalking = false;
     public bool isSprinting = false;
 
     private void Update()
     {
         movementInput = movementAction.action.ReadValue<Vector3>();
-        Debug.Log(movementInput);
     }
 
     private void Start()
     {
         playerRigidBody = GetComponent<Rigidbody>();
         playerGroundCheck = GetComponent<PlayerGroundCheck>();
-
         cameraTranform = Camera.main.transform;
+
+        dustParticleSystem = GetComponentInChildren<ParticleSystem>();
+
+        var emission = dustParticleSystem.emission;
+        emission.enabled = false;
     }
 
     public void HandleMovementDirection()
@@ -69,10 +75,12 @@ public class PlayerMovement : MonoBehaviour
                 float excessSpeed = playerHorizontalVelocity.magnitude - maxSpeed;
 
                 Vector3 breakForce = -playerHorizontalVelocity.normalized * excessSpeed;
-                playerRigidBody.AddForce(breakForce/2, ForceMode.Acceleration);
+                playerRigidBody.AddForce(breakForce, ForceMode.Acceleration);
             }
         }
-        
+
+        HandleSprintDust();
+
         isWalking = movementInput.magnitude > 0.1f;
     }
 
@@ -86,6 +94,22 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
 
             playerRigidBody.MoveRotation(Quaternion.Slerp(playerRigidBody.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+        }
+    }
+
+    private void HandleSprintDust()
+    {
+        if (dustParticleSystem == null) return;
+
+        var emission = dustParticleSystem.emission;
+
+        if (playerRigidBody.velocity.magnitude < minimumDustSpeed)
+        {
+            emission.enabled = false;
+        }
+        else
+        {
+            emission.enabled = true;
         }
     }
 

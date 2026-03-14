@@ -9,7 +9,6 @@ public class PlayerManager : MonoBehaviour
     private PlayerAnimations playerAnimations;
     private PlayerHealth playerHealth;
     private PlayerDeath playerDeath;
-    private PlayerStamina playerStamina;
     private PlayerUI playerUI;
     private ButtonSceneChanger buttonSceneChanger;
 
@@ -22,7 +21,6 @@ public class PlayerManager : MonoBehaviour
         playerAnimations = GetComponentInChildren<PlayerAnimations>();
         playerHealth = GetComponent<PlayerHealth>();
         playerDeath = GetComponent<PlayerDeath>();
-        playerStamina = GetComponent<PlayerStamina>();
         playerUI = GetComponent<PlayerUI>();
         buttonSceneChanger = FindAnyObjectByType<ButtonSceneChanger>();
     }

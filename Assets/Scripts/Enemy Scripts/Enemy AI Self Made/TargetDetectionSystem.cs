@@ -11,25 +11,17 @@ public class TargetDetectionSystem : MonoBehaviour
     [SerializeField] private LayerMask obstacleMask;
 
     [SerializeField] private bool showRadiusGizmo = false;
-
     [SerializeField] private float radius;
+
+    // Peripheral Vision Settings
+    [SerializeField] private float peripheralRadius = 10f; // Distance for the 360 persistence
 
     [Range(0, 360)]
     [SerializeField] private float angle;
 
     public bool targetInVision;
-
     public bool hasReachedLastSeenPosition = false;
     public bool isSearching = false;
-    [SerializeField] private float arrivalStatusThreshold;
-    public Coroutine searchRoutine;
-
-    /*private float searchTimer = 0f;
-    private float searchInterval = 1.0f; // Time to look in each direction
-    private int searchStep = 0;
-    private readonly float[] searchAngles = { -90f, 90f, 180f, -90f, 90f, 180f }; // Do it twice
-    private Quaternion startRotation;
-    private Quaternion targetRotation;*/
 
     private void Start()
     {
@@ -39,8 +31,7 @@ public class TargetDetectionSystem : MonoBehaviour
     private IEnumerator FOVRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
-
-        while(true)
+        while (true)
         {
             yield return wait;
             FieldOfViewCheck();
@@ -55,92 +46,31 @@ public class TargetDetectionSystem : MonoBehaviour
         {
             Transform target = targets[0].transform;
             Vector3 directionToTarget = (target.position - transform.position).normalized;
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            // 1. Check Standard Cone Vision
+            bool inCone = Vector3.Angle(transform.forward, directionToTarget) < angle / 2;
+
+            // 2. Check Peripheral Persistence (Only if we ALREADY saw them and they are close)
+            bool inPeripheralRange = targetInVision && (distanceToTarget <= peripheralRadius);
+
+            // If in cone OR in peripheral range, check for line of sight (obstacles)
+            if (inCone || inPeripheralRange)
             {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
                 {
                     targetInVision = true;
                     currentTargetPosition = target.position;
                     lastSeenTargetPosition = currentTargetPosition;
-                }
-                else
-                {
-                    targetInVision = false;
-                    currentTargetPosition = lastSeenTargetPosition;
+                    return; // Exit early since we found them
                 }
             }
-            else
-            {
-                targetInVision = false;
-                currentTargetPosition = lastSeenTargetPosition;
-            }
         }
-        else if (targetInVision)
-        {
-            targetInVision = false;
-            currentTargetPosition = transform.position;
-        }
+
+        // If we reach here, the target is either blocked, out of range, or out of view
+        targetInVision = false;
+        currentTargetPosition = lastSeenTargetPosition;
     }
-
-    /*public void UpdatePositionArrivalStatus()
-    {
-        if(!hasReachedLastSeenPosition && !targetInVision)
-        {
-            float distance = Vector3.Distance(transform.position, lastSeenTargetPosition);
-
-            if(distance < arrivalStatusThreshold)
-            {
-                hasReachedLastSeenPosition = true;
-            }
-        }
-
-        else if(targetInVision)
-        {
-            hasReachedLastSeenPosition = false;
-        }
-    }
-
-    public void SearchForTarget()
-    {
-        if (hasReachedLastSeenPosition)
-            isSearching = true;
-        else
-            isSearching = false;
-
-        if (!isSearching)
-        {
-            isSearching = true;
-            searchTimer = 0f;
-            searchStep = 0;
-            startRotation = transform.rotation;
-            targetRotation = Quaternion.Euler(0f, transform.eulerAngles.y + searchAngles[searchStep], 0f);
-        }
-
-        if(isSearching)
-        {
-            searchTimer += Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 120f * Time.deltaTime);
-
-            if (searchTimer >= searchInterval)
-            {
-                searchStep++;
-                searchTimer = 0f;
-
-                if (searchStep < searchAngles.Length)
-                {
-                    startRotation = transform.rotation;
-                    targetRotation = Quaternion.Euler(0f, transform.eulerAngles.y + searchAngles[searchStep], 0f);
-                }
-                else
-                {
-                    isSearching = false;
-                }
-            }
-        }
-    }*/
 
     public void AlertFromAttack(Vector3 attackerPosition)
     {
@@ -153,9 +83,15 @@ public class TargetDetectionSystem : MonoBehaviour
     {
         if (!showRadiusGizmo) return;
 
+        // Main Vision Radius
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
 
+        // Peripheral Persistence Radius
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, peripheralRadius);
+
+        // Cone Visualization
         Gizmos.color = Color.cyan;
         Vector3 forward = transform.forward;
         Vector3 leftBoundary = Quaternion.Euler(0f, -angle * 0.5f, 0f) * forward;
@@ -163,15 +99,5 @@ public class TargetDetectionSystem : MonoBehaviour
 
         Gizmos.DrawRay(transform.position, leftBoundary * radius);
         Gizmos.DrawRay(transform.position, rightBoundary * radius);
-        int steps = Mathf.Max(5, Mathf.CeilToInt(angle / 10f)); 
-        Vector3 prevDir = leftBoundary;
-        for (int i = 1; i <= steps; i++)
-        {
-            float stepAngle = -angle * 0.5f + (angle / steps) * i;
-            Vector3 nextDir = Quaternion.Euler(0f, stepAngle, 0f) * forward;
-            Gizmos.DrawLine(transform.position + prevDir * radius,
-                            transform.position + nextDir * radius);
-            prevDir = nextDir;
-        }
     }
 }

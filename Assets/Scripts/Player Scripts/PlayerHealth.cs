@@ -8,7 +8,6 @@ public class PlayerHealth : Health
     [SerializeField] private CinemachineImpulseSource cinemachineImpulseSource;
 
     public float damageTaken;
-    [SerializeField] private float cameraShakeDuration;
 
     private float screenShakeForce;
 

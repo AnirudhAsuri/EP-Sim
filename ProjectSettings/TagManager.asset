@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Invisible
+  - Dust Sprinting
   layers:
   - Default
   - TransparentFX
