@@ -1838,11 +1838,11 @@ MonoBehaviour:
     m_Bits: 64
   showRadiusGizmo: 1
   radius: 100
+  peripheralRadius: 10
   angle: 90
   targetInVision: 0
   hasReachedLastSeenPosition: 0
   isSearching: 0
-  arrivalStatusThreshold: 0
 --- !u!1 &8025935765015317764
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDeadBody: {fileID: 8073929832294859478, guid: 48d2f37083dda494c9f73d219f01d93c, type: 3}
+  crunchSound: {fileID: 8300000, guid: a2ea238bff83b174aa3efb0dd2febb86, type: 3}
 --- !u!114 &8306196678369806300
 MonoBehaviour:
   m_ObjectHideFlags: 0

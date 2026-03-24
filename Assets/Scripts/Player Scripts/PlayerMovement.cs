@@ -29,7 +29,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        movementInput = movementAction.action.ReadValue<Vector3>();
+        Vector2 input = movementAction.action.ReadValue<Vector2>();
+
+        movementInput = new Vector3(input.x, movementInput.y, input.y);
+
+        if(!isWalking)
+        {
+            isSprinting = false;
+        }
     }
 
     private void Start()
@@ -40,17 +47,22 @@ public class PlayerMovement : MonoBehaviour
 
         dustParticleSystem = GetComponentInChildren<ParticleSystem>();
 
-        var emission = dustParticleSystem.emission;
-        emission.enabled = false;
+        if(dustParticleSystem != null)
+        {
+            var emission = dustParticleSystem.emission;
+            emission.enabled = false;
+        }
     }
 
     public void HandleMovementDirection()
     {
-        movementDir = new Vector3(movementInput.x, 0f, movementInput.z);
-        movementDir = cameraTranform.forward * movementDir.z + cameraTranform.right * movementDir.x;
+        movementDir = cameraTranform.forward * movementInput.z + cameraTranform.right * movementInput.x;
         movementDir.y = 0f;
 
-        movementDir.Normalize();
+        if(movementDir.magnitude > 0.1f)
+        {
+            movementDir.Normalize();
+        }
     }
 
     public void HandlePlayerMovement()
@@ -79,8 +91,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        HandleSprintDust();
-
         isWalking = movementInput.magnitude > 0.1f;
     }
 
@@ -97,13 +107,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void HandleSprintDust()
+    public void HandleSprintDust()
     {
         if (dustParticleSystem == null) return;
 
         var emission = dustParticleSystem.emission;
 
-        if (playerRigidBody.velocity.magnitude < minimumDustSpeed)
+        if ((playerRigidBody.velocity.magnitude < minimumDustSpeed) || !playerGroundCheck.isGrounded)
         {
             emission.enabled = false;
         }
@@ -115,18 +125,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        movementAction.action.Enable();
+        jumpAction.action.Enable();
+        sprintAction.action.Enable();
+
         jumpAction.action.started += Jump;
 
-        sprintAction.action.started += SprintStarting;
-        sprintAction.action.canceled += SprintEnding;
+        sprintAction.action.started += SprintStatus;
     }
 
     private void OnDisable()
     {
         jumpAction.action.started -= Jump;
 
-        sprintAction.action.started -= SprintStarting;
-        sprintAction.action.canceled -= SprintEnding;
+        sprintAction.action.started -= SprintStatus;
     }
 
     private void Jump(InputAction.CallbackContext obj)
@@ -135,13 +147,8 @@ public class PlayerMovement : MonoBehaviour
             playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    private void SprintStarting(InputAction.CallbackContext obj)
+    private void SprintStatus(InputAction.CallbackContext obj)
     {
-        isSprinting = true;
-    }
-
-    private void SprintEnding(InputAction.CallbackContext obj)
-    {
-        isSprinting = false;
+        isSprinting = !isSprinting;
     }
 }

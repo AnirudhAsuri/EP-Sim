@@ -22,6 +22,7 @@ public class EnemyRangedAttacking : MonoBehaviour
     [SerializeField] private AudioClip shootingAudioClip;
 
     private string shootTrigger = "Shoot";
+
     private void Start()
     {
         rangedEnemyAnimator = GetComponentInChildren<Animator>();

@@ -6,7 +6,6 @@ using TMPro;
 
 public class Tutorial : MonoBehaviour
 {
-
     [SerializeField] private TextMeshProUGUI instructionsText;
     private PlayerHealth playerHealth;
 
@@ -38,21 +37,21 @@ public class Tutorial : MonoBehaviour
     public void HandleTutorialMessagesInitialization()
     {
         tutorialMessages.Add("Welcome to Ponchon"); //0
-        tutorialMessages.Add("MOVE\nW\nA    S    D\nGo touch the red sphere"); //1
-        tutorialMessages.Add("Well Done\nHold Shift while moving to increase acceleration"); //2
-        tutorialMessages.Add("Hold Shift while moving to increase acceleration\nGo touch the three red spheres"); //3
-        tutorialMessages.Add("Hold Shift while moving to increase acceleration\n1/3 Spheres touched"); //4
-        tutorialMessages.Add("Hold Shift while moving to increase acceleration\n2/3 Spheres touched"); //5
-        tutorialMessages.Add("Hold Shift while moving to increase acceleration\n3/3 Spheres touched"); //6
-        tutorialMessages.Add("Well Done\nNext: Left Click to Left Punch\nRight Click to Right Punch"); //7
+        tutorialMessages.Add("MOVE\nUse the Joystick\nGo touch the red sphere"); //1
+        tutorialMessages.Add("Well Done\nToggle the Sprint button while moving to increase acceleration"); //2
+        tutorialMessages.Add("Toggle Sprint On while moving to increase acceleration\nGo touch the three red spheres"); //3
+        tutorialMessages.Add("Toggle Sprint On while moving to increase acceleration\n1/3 Spheres touched"); //4
+        tutorialMessages.Add("Toggle Sprint On while moving to increase acceleration\n2/3 Spheres touched"); //5
+        tutorialMessages.Add("Toggle Sprint On while moving to increase acceleration\n3/3 Spheres touched"); //6
+        tutorialMessages.Add("Well Done\nNext: Left Attack to Left Punch\nRight Attack to Right Punch"); //7
         tutorialMessages.Add("Attack the Dummy Enemy\nHigher your speed, greater your damage"); //8
         tutorialMessages.Add("Good Job\nYour Health is Displayed in the upper right corner"); //9
         tutorialMessages.Add("If you lose some health, you can recover it by killing enemies"); //10
         tutorialMessages.Add("Kill the dummy to regain some health"); //11
         tutorialMessages.Add("Great Job!\nYou are back to full health"); //12
         tutorialMessages.Add("Now go fight the real enemy\nEnemies can run only for a while before they get tired and can't attack you anymore"); //13
-        tutorialMessages.Add(""); //14
-        tutorialMessages.Add("Amazing job!! You have finished the tutorial!! \nYou may now exit the tutorial using the 'Esc' key to open the Pause Menu"); //15
+        tutorialMessages.Add("Enemies can run only for a while before they get tired and can't attack you anymore"); //14
+        tutorialMessages.Add("Amazing job!! You have finished the tutorial!! \nYou may now exit the tutorial using the Pause Menu at the top left corner"); //15
 
         currentTextPointer = 0;
         ChangeInstructionText(currentTextPointer);

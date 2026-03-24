@@ -908,11 +908,11 @@ MonoBehaviour:
     m_Bits: 64
   showRadiusGizmo: 1
   radius: 100
+  peripheralRadius: 10
   angle: 90
   targetInVision: 0
   hasReachedLastSeenPosition: 0
   isSearching: 0
-  arrivalStatusThreshold: 0
 --- !u!1 &8025935765015317764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1050,7 @@ MonoBehaviour:
   currentHealth: 0
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}
+  hitAudioClip: {fileID: 8300000, guid: 68efe2a371744d44fbbfb7efdff58409, type: 3}
 --- !u!114 &-2834472206236710526
 MonoBehaviour:
   m_ObjectHideFlags: 0

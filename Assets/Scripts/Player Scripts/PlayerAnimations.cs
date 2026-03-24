@@ -10,14 +10,10 @@ public class PlayerAnimations : MonoBehaviour
     private PlayerGroundCheck playerGroundCheck;
 
     private string walkingParameter;
+    private string sprintingParameter;
     private string groundedParameter;
     private string leftAttackTrigger;
     private string rightAttackTrigger;
-
-    private string idleLeftAttack;
-    private string idleRightAttack;
-    private string runningLeftAttack;
-    private string runningRightAttack;
 
     [SerializeField] private AudioClip punchAirAudioClip;
 
@@ -28,6 +24,7 @@ public class PlayerAnimations : MonoBehaviour
         playerGroundCheck = GetComponentInParent<PlayerGroundCheck>();
 
         walkingParameter = "IsWalking";
+        sprintingParameter = "IsSprinting";
         groundedParameter = "IsGrounded";
         leftAttackTrigger = "Left Attack Trigger";
         rightAttackTrigger = "Right Attack Trigger";
@@ -36,6 +33,8 @@ public class PlayerAnimations : MonoBehaviour
     {
         playerAnimator.SetBool(walkingParameter, playerMovement.isWalking);
 
+        playerAnimator.SetBool(sprintingParameter, playerMovement.isSprinting);
+        
         playerAnimator.SetBool(groundedParameter, playerGroundCheck.isGrounded);
     }
 

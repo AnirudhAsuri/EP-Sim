@@ -9,6 +9,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float bulletPushbackMeasure;
     private Vector3 pushBackDirection;
     private bool damageIsDealt = false;
+
+    private GameObject hitParticlesPrefab;
+    private ParticleSystem hitParticles;
+    private ParticleSystem hitParticlesInstance;
+
+    private void Start()
+    {
+        hitParticlesPrefab = Resources.Load<GameObject>("Particles/HitParticles");
+
+        if (hitParticlesPrefab != null)
+        {
+            hitParticles = hitParticlesPrefab.GetComponent<ParticleSystem>();
+        }
+    }
+
     private void Awake()
     {
         Destroy(gameObject, life);
@@ -30,6 +45,13 @@ public class Bullet : MonoBehaviour
             {
                 playerHealth.TakeDamage(bulletDamage);
                 damageIsDealt = true;
+
+                if (hitParticles != null)
+                {
+                    Vector3 hitPosition = other.ClosestPoint(transform.position);
+
+                    hitParticlesInstance = Instantiate(hitParticles, hitPosition, Quaternion.identity);
+                }
             }
 
             if (playerRigidBody != null)

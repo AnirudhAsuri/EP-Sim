@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         playerMovement = GetComponent<PlayerMovement>();
         playerGroundCheck = GetComponent<PlayerGroundCheck>();
@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
 
         if (playerGroundCheck.isGrounded)
             playerMovement.HandlePlayerMovement();
+        playerMovement.HandleSprintDust();
 
         if(playerMovement.movementInput.magnitude > 0.1f)
             playerMovement.HandlePlayerTurning(playerMovement.movementDir);
@@ -39,6 +40,9 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        if (playerHealth == null)
+            return;
+
         if(playerHealth.currentHealth <= 0)
         {
             playerUI.playerHealthSlider.enabled = false;

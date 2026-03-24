@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Invisible
   - Dust Sprinting
+  - Level Music Source
   layers:
   - Default
   - TransparentFX

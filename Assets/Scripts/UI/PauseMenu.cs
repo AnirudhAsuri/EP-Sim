@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,24 +10,27 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject deathScreen;
     public bool isPaused = false;
 
+    [SerializeField] private InputActionReference pauseInput;
 
-    private void Update()
+    private void Start()
+    {
+        pauseInput.action.Enable();
+    }
+
+    private void OnEnable()
     {
         if (pauseMenuUI != null && !deathScreen.activeSelf)
         {
-            HandlePauseInput();
+            pauseInput.action.started += HandlePauseInput;
         }
     }
 
-    private void HandlePauseInput()
+    private void HandlePauseInput(InputAction.CallbackContext obj)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-                ResumeGame();
-            else
-                PauseGame();
-        }
+        if (isPaused)
+            ResumeGame();
+        else
+            PauseGame();
     }
 
     private void PauseGame()

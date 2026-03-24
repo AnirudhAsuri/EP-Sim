@@ -144,22 +144,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Temp Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""1f86cd82-669c-4aad-a69e-ff6c5e554a19"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""3D Vector"",
+                    ""name"": ""WASD"",
                     ""id"": ""eb80e15d-8c6c-44ef-880b-4f687d731928"",
-                    ""path"": ""3DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -168,8 +159,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""Up"",
                     ""id"": ""69bd9b43-1be1-4e1c-bb32-23d4318dabeb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""67c48cd7-2235-4958-80da-843a44d4fbd4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""68c3a74e-1e7b-4e37-b829-e3996cbd7af9"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -179,37 +192,26 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""67c48cd7-2235-4958-80da-843a44d4fbd4"",
+                    ""name"": ""Right"",
+                    ""id"": ""83f6050d-c8c6-4455-a10f-4a2cb860f53c"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""forward"",
-                    ""id"": ""68c3a74e-1e7b-4e37-b829-e3996cbd7af9"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""name"": """",
+                    ""id"": ""6996768e-41b3-4de9-b6c2-e270bf3b78bc"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Android Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""83f6050d-c8c6-4455-a10f-4a2cb860f53c"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -218,6 +220,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""996eca3c-fe89-429d-a2ac-719251c05686"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Android Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -235,11 +248,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2c9cd1a7-001f-4326-a126-5384ed4f6eb1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Android Gamepad"",
+                    ""action"": ""Sliding Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ef6c09a5-df20-405b-9b6b-26c794c55bf7"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
+                    ""action"": ""Left Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1229263-246d-4d0f-8368-49a97bb7a6b6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": "";Android Gamepad"",
                     ""action"": ""Left Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -257,8 +292,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""fe2a35e5-de6f-42ec-8ec3-36d163db8d7f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": "";Android Gamepad"",
+                    ""action"": ""Right Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""5bc06ae7-6403-4473-b288-4734d90002be"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -268,12 +314,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fd1526c4-328d-411d-b613-5814ac44ac89"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""518a383c-8564-441a-8931-9ef5d8f18f12"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard"",
-                    ""action"": ""Temp Fire"",
+                    ""groups"": "";Android Gamepad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -296,6 +342,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Android Gamepad"",
+            ""bindingGroup"": ""Android Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<AndroidGamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -307,7 +364,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_LeftAttack = m_Gameplay.FindAction("Left Attack", throwIfNotFound: true);
         m_Gameplay_RightAttack = m_Gameplay.FindAction("Right Attack", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
-        m_Gameplay_TempFire = m_Gameplay.FindAction("Temp Fire", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -394,7 +450,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_LeftAttack;
     private readonly InputAction m_Gameplay_RightAttack;
     private readonly InputAction m_Gameplay_Pause;
-    private readonly InputAction m_Gameplay_TempFire;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -430,10 +485,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
-        /// <summary>
-        /// Provides access to the underlying input action "Gameplay/TempFire".
-        /// </summary>
-        public InputAction @TempFire => m_Wrapper.m_Gameplay_TempFire;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -478,9 +529,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
-            @TempFire.started += instance.OnTempFire;
-            @TempFire.performed += instance.OnTempFire;
-            @TempFire.canceled += instance.OnTempFire;
         }
 
         /// <summary>
@@ -510,9 +558,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
-            @TempFire.started -= instance.OnTempFire;
-            @TempFire.performed -= instance.OnTempFire;
-            @TempFire.canceled -= instance.OnTempFire;
         }
 
         /// <summary>
@@ -557,6 +602,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
             return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_AndroidGamepadSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme AndroidGamepadScheme
+    {
+        get
+        {
+            if (m_AndroidGamepadSchemeIndex == -1) m_AndroidGamepadSchemeIndex = asset.FindControlSchemeIndex("Android Gamepad");
+            return asset.controlSchemes[m_AndroidGamepadSchemeIndex];
         }
     }
     /// <summary>
@@ -608,12 +666,5 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Temp Fire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTempFire(InputAction.CallbackContext context);
     }
 }

@@ -8,9 +8,10 @@ public class EnemyCount : MonoBehaviour
 {
     public static event Action OnAllEnemiesDefeated;
 
-    [SerializeField] private GameObject winScreen;
     [SerializeField] private TextMeshProUGUI enemyCountText;
-    private int enemyCount;
+    public int enemyCount;
+
+    [SerializeField] private VictorySnapshot victorySnapshot;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class EnemyCount : MonoBehaviour
 
         if(enemyCount == 0)
         {
-            winScreen.SetActive(true);
+            victorySnapshot.TakeVictoryPicture();
             OnAllEnemiesDefeated?.Invoke();
         }
     }
