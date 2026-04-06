@@ -14,12 +14,19 @@ public class PlayerDeath : MonoBehaviour
         thirdPersonCamera = FindObjectOfType<CinemachineFreeLook>();
     }
 
-    public void SwitchBodies()
+    public void SwitchBodies(Vector3 pushDirection, float force)
     {
         GameObject deadBody = Instantiate(playerDeadBody, transform.position, transform.rotation);
 
         thirdPersonCamera.Follow = deadBody.transform;
         thirdPersonCamera.LookAt = deadBody.transform;
+
+        Rigidbody deadBodyRigidbody = deadBody.GetComponent<Rigidbody>();
+
+        if(deadBodyRigidbody != null)
+        {
+            deadBodyRigidbody.AddForce(pushDirection * force, ForceMode.Impulse);
+        }
 
         Destroy(gameObject);
     }

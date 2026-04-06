@@ -12,6 +12,7 @@ public class PlayerAttacking : MonoBehaviour
     private CinemachineImpulseSource cinemachineImpulseSource;
     private PlayerAnimations playerAnimations;
     private PlayerMovement playerMovement;
+    private PowerUpEffects powerUpEffects;
 
     public InputActionReference leftAttack;
     public InputActionReference rightAttack;
@@ -24,6 +25,8 @@ public class PlayerAttacking : MonoBehaviour
     [SerializeField] private float baseAttackDamage;
     [SerializeField] private float pushBackMultiplier;
 
+    public float defaultDamage;
+
     private float screenShakeForce;
 
     private GameObject hitParticlesPrefab;
@@ -34,10 +37,13 @@ public class PlayerAttacking : MonoBehaviour
     {
         playerAnimations = GetComponentInChildren<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
+        powerUpEffects = GetComponentInChildren<PowerUpEffects>();
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
 
         attackDamage = baseAttackDamage;
         pushBackMeasure = basePushBack;
+
+        defaultDamage = baseAttackDamage;
 
         EnemyTag = "Enemy";
 
@@ -66,11 +72,13 @@ public class PlayerAttacking : MonoBehaviour
     private void RightAttack(InputAction.CallbackContext obj)
     {
         playerAnimations.RightAttack();
+        RightAttackButtonPop.Instance.ButtonPop();
     }
 
     private void LeftAttack(InputAction.CallbackContext obj)
     {
         playerAnimations.LeftAttack();
+        LeftAttackButtonPop.Instance.ButtonPop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -87,8 +95,7 @@ public class PlayerAttacking : MonoBehaviour
 
             if(enemyHealth != null)
             {
-                enemyHealth.TakeDamage(attackDamage);
-                other.attachedRigidbody.AddForce(pushBackMeasure * pushBackDirection, ForceMode.Impulse);
+                enemyHealth.TakeDamage(attackDamage, pushBackDirection, pushBackMeasure);
 
                 if(hitParticles != null)
                 {
@@ -123,5 +130,11 @@ public class PlayerAttacking : MonoBehaviour
         screenShakeForce = attackDamage * 0.01f;
 
         cinemachineImpulseSource.GenerateImpulseWithForce(screenShakeForce);
+    }
+
+    public void HandleGiantDamage(float damage)
+    {
+        baseAttackDamage = damage;
+        attackDamage = damage;
     }
 }

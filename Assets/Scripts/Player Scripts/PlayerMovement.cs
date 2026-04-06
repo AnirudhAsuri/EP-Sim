@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerGroundCheck playerGroundCheck;
+    private PowerUpEffects powerUpEffects;
     private Transform cameraTranform;
 
     public Rigidbody playerRigidBody;
@@ -27,6 +29,27 @@ public class PlayerMovement : MonoBehaviour
     public bool isWalking = false;
     public bool isSprinting = false;
 
+    private float sandyMovementSpeed = 8f;
+    private float grassyMovementSpeed = 10f;
+    private float icyMovementSpeed = 13f;
+    private float defaultMovementSpeed = 10f;
+
+    private void Start()
+    {
+        playerRigidBody = GetComponent<Rigidbody>();
+        playerGroundCheck = GetComponent<PlayerGroundCheck>();
+        powerUpEffects = GetComponentInChildren<PowerUpEffects>();
+        cameraTranform = Camera.main.transform;
+
+        dustParticleSystem = GetComponentInChildren<ParticleSystem>();
+
+        if (dustParticleSystem != null)
+        {
+            var emission = dustParticleSystem.emission;
+            emission.enabled = false;
+        }
+    }
+
     private void Update()
     {
         Vector2 input = movementAction.action.ReadValue<Vector2>();
@@ -37,20 +60,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isSprinting = false;
         }
-    }
 
-    private void Start()
-    {
-        playerRigidBody = GetComponent<Rigidbody>();
-        playerGroundCheck = GetComponent<PlayerGroundCheck>();
-        cameraTranform = Camera.main.transform;
-
-        dustParticleSystem = GetComponentInChildren<ParticleSystem>();
-
-        if(dustParticleSystem != null)
+        if(SprintButtonPopAndActivate.Instance != null)
         {
-            var emission = dustParticleSystem.emission;
-            emission.enabled = false;
+            SprintButtonPopAndActivate.Instance.ChangeColor(isSprinting);
         }
     }
 
@@ -67,6 +80,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandlePlayerMovement()
     {
+        float activeMaxSpeed = maxSpeed;
+
+        if(powerUpEffects.isSpedUp)
+        {
+            activeMaxSpeed *= powerUpEffects.powerUpSpeedLimitMultiplier;
+        }
+
         Vector3 playerHorizontalVelocity = new Vector3(playerRigidBody.velocity.x, 0f, playerRigidBody.velocity.z);
 
         if (isSprinting)
@@ -82,9 +102,9 @@ public class PlayerMovement : MonoBehaviour
 
             playerRigidBody.AddForce(walkForce, ForceMode.Acceleration);
 
-            if(playerHorizontalVelocity.magnitude > maxSpeed)
+            if(playerHorizontalVelocity.magnitude > activeMaxSpeed)
             {
-                float excessSpeed = playerHorizontalVelocity.magnitude - maxSpeed;
+                float excessSpeed = playerHorizontalVelocity.magnitude - activeMaxSpeed;
 
                 Vector3 breakForce = -playerHorizontalVelocity.normalized * excessSpeed;
                 playerRigidBody.AddForce(breakForce, ForceMode.Acceleration);
@@ -92,6 +112,39 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isWalking = movementInput.magnitude > 0.1f;
+    }
+
+    public void HandlePlayerMovementSpeed()
+    {
+        switch(playerGroundCheck.currentFloorType)
+        {
+            case PlayerGroundCheck.FloorType.GrassyFloor:
+                movementSpeed = grassyMovementSpeed;
+                break;
+
+            case PlayerGroundCheck.FloorType.SandyFloor:
+                if (powerUpEffects.ignoreSand)
+                    movementSpeed = defaultMovementSpeed;
+                else
+                    movementSpeed = sandyMovementSpeed;
+                break;
+
+            case PlayerGroundCheck.FloorType.IcyFloor:
+                if (powerUpEffects.ignoreIce)
+                    movementSpeed = defaultMovementSpeed;
+                else
+                    movementSpeed = icyMovementSpeed;
+                break;
+
+            default:
+                movementSpeed = defaultMovementSpeed;
+                break;
+        }
+
+        if(powerUpEffects.isSpedUp)
+        {
+            movementSpeed *= powerUpEffects.powerUpSpeedMultiplier;
+        }
     }
 
     public void HandlePlayerTurning(Vector3 movementDirection)
@@ -144,11 +197,17 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(InputAction.CallbackContext obj)
     {
         if(playerGroundCheck.isGrounded)
+        {
             playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            JumpButtonPop.Instance.ButtonPop();
+        }
     }
 
     private void SprintStatus(InputAction.CallbackContext obj)
     {
         isSprinting = !isSprinting;
+
+        SprintButtonPopAndActivate.Instance.ButtonPop();
     }
 }

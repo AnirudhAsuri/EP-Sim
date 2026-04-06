@@ -6,26 +6,61 @@ using Cinemachine;
 public class PlayerHealth : Health
 {
     [SerializeField] private CinemachineImpulseSource cinemachineImpulseSource;
+    private Rigidbody playerRigidbody;
+    private PowerUpEffects powerUpEffects;
+
+    public float defaultHealth;
 
     public float damageTaken;
+    public Vector3 pushBackDirection;
+    public float pushBackForce;
 
     private float screenShakeForce;
 
     [SerializeField] private AudioClip playerHitAudioClip;
+    [SerializeField] private AudioClip invulnHitAudioClip;
 
     private void Start()
     {
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
+        playerRigidbody = GetComponent<Rigidbody>();
+        powerUpEffects = GetComponentInChildren<PowerUpEffects>();
 
         InitialiseTotalHealth();
+
+        defaultHealth = totalHealth;
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, Vector3 direction, float force)
     {
-        screenShakeForce = damage * 0.01f;  
-        currentHealth -= damage;
+        if(!powerUpEffects.isInvulnerable)
+        {
+            screenShakeForce = damage * 0.01f;
+            currentHealth -= damage;
 
-        SoundFXManager.instance.PlaySoundEffect(playerHitAudioClip, transform, damage / 100);
+            pushBackDirection = direction;
+            pushBackForce = force;
+            SoundFXManager.instance.PlaySoundEffect(playerHitAudioClip, transform, damage / 100);
+        }
+
+        else
+        {
+            SoundFXManager.instance.PlaySoundEffect(invulnHitAudioClip, transform, 0.4f);
+        }
+
+        playerRigidbody.AddForce(pushBackDirection * pushBackForce, ForceMode.Impulse);
+        
         cinemachineImpulseSource.GenerateImpulseWithForce(screenShakeForce);
+    }
+
+    public void HealthRegenPowerUp(float health)
+    {
+        currentHealth += health;
+    }
+
+    public void HandleGiantHealth(float health)
+    {
+        totalHealth = health;
+        currentHealth = totalHealth;
     }
 }

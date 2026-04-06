@@ -12,6 +12,7 @@ public class PlayerAnimations : MonoBehaviour
     private string walkingParameter;
     private string sprintingParameter;
     private string groundedParameter;
+    private string giantParameter;
     private string leftAttackTrigger;
     private string rightAttackTrigger;
 
@@ -26,6 +27,7 @@ public class PlayerAnimations : MonoBehaviour
         walkingParameter = "IsWalking";
         sprintingParameter = "IsSprinting";
         groundedParameter = "IsGrounded";
+        giantParameter = "IsGiant";
         leftAttackTrigger = "Left Attack Trigger";
         rightAttackTrigger = "Right Attack Trigger";
     }
@@ -36,6 +38,11 @@ public class PlayerAnimations : MonoBehaviour
         playerAnimator.SetBool(sprintingParameter, playerMovement.isSprinting);
         
         playerAnimator.SetBool(groundedParameter, playerGroundCheck.isGrounded);
+    }
+
+    public void HandleGiantAnimations(bool isGiant)
+    {
+        playerAnimator.SetBool(giantParameter, isGiant);
     }
 
     public void LeftAttack()

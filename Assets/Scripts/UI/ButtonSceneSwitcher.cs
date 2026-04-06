@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonSceneChanger : MonoBehaviour
 {
-    [SerializeField] private LevelLoader levelLoader;
+    public LevelLoader levelLoader;
 
     private string levelPickerScene = "Level Picker Scene";
     private string settingsScene = "Settings Scene";
@@ -12,8 +12,13 @@ public class ButtonSceneChanger : MonoBehaviour
     private float time = 0f;
     private bool timerOn = false;
 
+    private CanvasGroup canvasGroup;
+
     private void Start()
     {
+        canvasGroup = GetComponent<CanvasGroup>();
+        EnableInteractability();
+
         levelLoader = FindAnyObjectByType<LevelLoader>();
     }
 
@@ -36,17 +41,20 @@ public class ButtonSceneChanger : MonoBehaviour
     public void HandleMainMenuToLevelPicker()
     {
         timerOn = true;
+        DisableInteractability();
     }
 
     public void HandleSwitchToLevelPicker()
     {
         Time.timeScale = 1f;
+        DisableInteractability();
         levelLoader.LoadLevel(levelPickerScene);
     }
 
     public void HandleSwitchToSettings()
     {
         Time.timeScale = 1f;
+        DisableInteractability();
         levelLoader.LoadLevel(settingsScene);
     }
 
@@ -58,11 +66,25 @@ public class ButtonSceneChanger : MonoBehaviour
     public void HandleSwitchToMainMenu()
     {
         Time.timeScale = 1f;
+        DisableInteractability();
         levelLoader.LoadLevel(mainMenuScene);
     }
 
     public void RestartLevel()
     {
         levelLoader.LoadLevel(SceneManager.GetActiveScene().name);
+        DisableInteractability();
+    }
+
+    private void DisableInteractability()
+    {
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+
+    private void EnableInteractability()
+    {
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500093448039838717}
-  - component: {fileID: 5098520420774569282}
+  - component: {fileID: 2699917401627454980}
   m_Layer: 0
   m_Name: Ads Manager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5098520420774569282
+--- !u!114 &2699917401627454980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6283218177808728125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e4858da512a9bc4181b61db6b002463, type: 3}
+  m_Script: {fileID: 11500000, guid: b553717578a90bc42b8da770aca84a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

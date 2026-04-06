@@ -12,7 +12,7 @@ public class SettingsMenu : MonoBehaviour
     private string soundFXVolume = "SoundFXVolume";
 
     private const string MusicKey = "MusicVolume";
-    private const string SFXKey = "SFXVolume";
+    private const string SFXKey = "SoundFXVolume";
 
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundFXSlider;
@@ -20,18 +20,21 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider xSensSlider;
     [SerializeField] private Slider ySensSlider;
 
-    public float cameraXSensitivity;
-    public float cameraYSensitivity;
+    public const string X_SENS_KEY = "CameraXSens";
+    public const string Y_SENS_KEY = "CameraYSens";
+
+    private string freezeFrameStatus = "Freeze Frame Status";
 
     private void Start()
     {
-        if(CameraSensitivityManager.Instance != null)
-        {
-            xSensSlider.value = CameraSensitivityManager.Instance.GetCurrentX();
-            ySensSlider.value = CameraSensitivityManager.Instance.GetCurrentY();
-        }
+        LoadSensitivitySettings();
 
         LoadMusicSettings();
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.Save();
     }
 
     public void SetMusicVolume(float volume)
@@ -62,21 +65,30 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetXSensitivity(float sensitivity)
     {
-        cameraXSensitivity = sensitivity;
-
-        if(CameraSensitivityManager.Instance != null)
-        {
-            CameraSensitivityManager.Instance.RefreshReferencesAndApply();
-        }
+        PlayerPrefs.SetFloat(X_SENS_KEY, sensitivity);
     }
 
     public void SetYSensitivity(float sensitivity)
     {
-        cameraYSensitivity = sensitivity;
+        PlayerPrefs.SetFloat(Y_SENS_KEY, sensitivity);
+    }
 
-        if (CameraSensitivityManager.Instance != null)
-        {
-            CameraSensitivityManager.Instance.RefreshReferencesAndApply();
-        }
+    private void LoadSensitivitySettings()
+    {
+        float savedXSens = PlayerPrefs.GetFloat(X_SENS_KEY, 300f);
+        float savedYSens = PlayerPrefs.GetFloat(Y_SENS_KEY, 5f);
+
+        SetXSensitivity(savedXSens);
+        SetYSensitivity(savedYSens);
+
+        if (xSensSlider != null) xSensSlider.value = savedXSens;
+        if (ySensSlider != null) ySensSlider.value = savedYSens;
+    }
+
+    public void SetFreezeFrameStatus(float value)
+    {
+        int val = (int)value;
+
+        PlayerPrefs.SetInt(freezeFrameStatus, val);
     }
 }

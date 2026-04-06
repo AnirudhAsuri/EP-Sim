@@ -37,4 +37,9 @@ public class PlayerUI : MonoBehaviour
         if (playerHealthSlider != null)
             playerHealthSlider.value = playerHealth.currentHealth;
     }
+
+    public void UpdateHealthSliderTotalHealth(float newHealth)
+    {
+        playerHealthSlider.maxValue = newHealth;
+    }
 }

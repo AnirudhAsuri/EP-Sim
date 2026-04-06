@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public class EnemyHealth : Health
 {
+    private Rigidbody enemyRigidbody;
+
     public float pushBackMeasure;
     public Vector3 pushBackDirection;
+    public float pushBackForce;
 
     [SerializeField] private AudioClip hitAudioClip;
 
@@ -13,12 +16,19 @@ public class EnemyHealth : Health
 
     private void Awake()
     {
+        enemyRigidbody = GetComponent<Rigidbody>();
+
         InitialiseTotalHealth();
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, Vector3 direction, float force)
     {
         currentHealth -= damage;
+
+        pushBackDirection = direction;
+        pushBackForce = force;
+
+        enemyRigidbody.AddForce(pushBackDirection * pushBackForce, ForceMode.Impulse);
 
         SoundFXManager.instance.PlaySoundEffect(hitAudioClip, transform, damage/100);
     }

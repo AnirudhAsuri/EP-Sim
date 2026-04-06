@@ -17,7 +17,7 @@ public class EnemyFatigue : MonoBehaviour
     private float maxEnemySpeed;
     private float enemySpeed;
 
-    private bool isInTiredState;
+    public bool isInTiredState;
 
     private void Awake()
     {

@@ -74,8 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0d435f82343d740b69702512b3c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 20
+  bulletDamage: 10
   bulletPushbackMeasure: 20
+  bulletHitSoundEffect: {fileID: 8300000, guid: 491ea6bbe6d78be40935e150f60b1fc3, type: 3}
 --- !u!135 &5353029414269051385
 SphereCollider:
   m_ObjectHideFlags: 0

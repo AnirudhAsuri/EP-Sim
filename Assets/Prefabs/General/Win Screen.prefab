@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1821142156107173348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 7070414123384199216}
   - component: {fileID: 1192529785644339276}
   - component: {fileID: 2179473406780254390}
+  - component: {fileID: 3368014173299485202}
   m_Layer: 5
   m_Name: Win Screen
   m_TagString: Untagged
@@ -363,6 +364,18 @@ MonoBehaviour:
   playerUICanvas: {fileID: 0}
   enemyCountCanvas: {fileID: 0}
   timeText: {fileID: 4260192433908240997}
+--- !u!225 &3368014173299485202
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880643061523605585}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4127823286147975016
 GameObject:
   m_ObjectHideFlags: 0

@@ -2337,7 +2337,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8073929832294859478}
   serializedVersion: 4
-  m_Mass: 2
+  m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2373,6 +2373,14 @@ MonoBehaviour:
   movementSpeed: 10
   maxSpeed: 14
   rotationSpeed: 10
+  grassMovementSpeed: 10
+  sandMovementSpeed: 7
+  icyMovementSpeed: 13
+  defaultMovementSpeed: 10
+  isJumper: 0
+  jumpPower: 0
+  jumpCooldown: 1.5
+  currentFloorType: 0
 --- !u!114 &5252871352139847459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2421,10 +2429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a2d925f55cac949a1c667cf7f13903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 110
+  totalHealth: 50
   currentHealth: 0
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}
+  pushBackForce: 0
   hitAudioClip: {fileID: 8300000, guid: 68efe2a371744d44fbbfb7efdff58409, type: 3}
 --- !u!114 &7896386347515706863
 MonoBehaviour:
@@ -2440,6 +2449,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDeadBody: {fileID: 8073929832294859478, guid: b7d82e3298e94184a8cb926c2bbd5c75, type: 3}
   crunchSound: {fileID: 8300000, guid: a2ea238bff83b174aa3efb0dd2febb86, type: 3}
+  giantPowerUpProb: 0
+  healthRegenPowerUpProb: 8
+  icePowerUpProb: 0
+  sandPowerUpProb: 0
+  invulnerabilityPowerUpProb: 7
+  speedPowerUpProb: 25
+  nothingProb: 60
 --- !u!114 &6372317568349727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,6 +2474,7 @@ MonoBehaviour:
   currentFatigue: 0
   fatigueDrainRate: 1.2
   fatigueRiseRate: 25
+  isInTiredState: 0
 --- !u!114 &494542709672713783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,6 +2492,7 @@ MonoBehaviour:
   bulletSpeed: 30
   maximumAttackDistance: 200
   fatigueLossValue: 20
+  recoilPushBack: 0
   minimumMaintainedDistance: 10
   timeBetweenShots: 2
   shootingAudioClip: {fileID: 8300000, guid: 420157b5afe83fb4482d4d14f965e405, type: 3}

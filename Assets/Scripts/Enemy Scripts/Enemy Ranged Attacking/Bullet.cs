@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     private ParticleSystem hitParticles;
     private ParticleSystem hitParticlesInstance;
 
+    [SerializeField] private AudioClip bulletHitSoundEffect;
+ 
     private void Start()
     {
         hitParticlesPrefab = Resources.Load<GameObject>("Particles/HitParticles");
@@ -35,30 +37,29 @@ public class Bullet : MonoBehaviour
             return;
         if (other.gameObject.GetComponent<PlayerHealth>() != null)
         {
-            pushBackDirection = (other.transform.position - transform.position).normalized;
+            pushBackDirection = transform.forward;
 
             GameObject player = other.gameObject;
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            Rigidbody playerRigidBody = player.GetComponentInParent<Rigidbody>();
 
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(bulletDamage);
+                playerHealth.TakeDamage(bulletDamage, pushBackDirection, bulletPushbackMeasure);
                 damageIsDealt = true;
 
-                if (hitParticles != null)
+                PowerUpEffects powerUpEffects = other.GetComponentInChildren<PowerUpEffects>();
+
+                if (hitParticles != null && !powerUpEffects.isInvulnerable)
                 {
                     Vector3 hitPosition = other.ClosestPoint(transform.position);
 
                     hitParticlesInstance = Instantiate(hitParticles, hitPosition, Quaternion.identity);
+
+                    SoundFXManager.instance.PlaySoundEffect(bulletHitSoundEffect, player.transform, 0.8f);
                 }
             }
-
-            if (playerRigidBody != null)
-                playerRigidBody.AddForce(pushBackDirection * bulletPushbackMeasure, ForceMode.Impulse);
         }
 
         Destroy(gameObject);
-        damageIsDealt = false;
     }
 }

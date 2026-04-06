@@ -20,17 +20,6 @@ public class WinManager : MonoBehaviour
     private float timer;
     private float slowMoTime = 3f;
 
-    private PostProcessVolume postProcessVolume;
-    private Vignette vignette;
-    private Grain grain;
-
-    private void Awake()
-    {
-        postProcessVolume = FindAnyObjectByType<PostProcessVolume>();
-        postProcessVolume.profile.TryGetSettings(out vignette);
-        postProcessVolume.profile.TryGetSettings(out grain);
-    }
-
     void Update()
     {
         timer += Time.deltaTime;
@@ -64,16 +53,6 @@ public class WinManager : MonoBehaviour
 
     private IEnumerator WinScreenRoutine()
     {
-        if (vignette != null)
-        {
-            vignette.enabled.value = true;
-        }
-
-        if (grain != null)
-        {
-            grain.enabled.value = true;
-        }
-
         Time.timeScale = 0.25f;
 
         yield return new WaitForSecondsRealtime(slowMoTime);

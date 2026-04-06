@@ -10,7 +10,7 @@ public class AndroidCameraUI : MonoBehaviour, IDragHandler, IPointerDownHandler,
     private Image CameraControlArea;
     [SerializeField] CinemachineFreeLook freeLook;
 
-    private float lookSpeedX = 0.05f;
+    private float lookSpeedX = 0.075f;
     private float lookSpeedY = 0.005f;
 
     void Start()
@@ -26,7 +26,6 @@ public class AndroidCameraUI : MonoBehaviour, IDragHandler, IPointerDownHandler,
             eventData.enterEventCamera, 
             out Vector2 position))
         {
-            //Debug.Log(position);
             freeLook.m_XAxis.m_InputAxisValue = eventData.delta.x * lookSpeedX;
             freeLook.m_YAxis.m_InputAxisValue = eventData.delta.y * lookSpeedY;
         }

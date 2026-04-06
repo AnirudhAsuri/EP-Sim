@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyRangedAttacking : MonoBehaviour
 {
+    private Rigidbody enemyRigidBody;
     private Animator rangedEnemyAnimator;
     private EnemyFatigue enemyFatigue;
     private EnemyAIManager enemyAIManager;
@@ -15,7 +16,12 @@ public class EnemyRangedAttacking : MonoBehaviour
     [SerializeField] private float maximumAttackDistance;
     [SerializeField] private float fatigueLossValue;
 
+    [SerializeField] private float recoilPushBack;
+    private Vector3 recoilDirection;
+    private float targetOffset = 1f;
+
     public float minimumMaintainedDistance;
+    [SerializeField] private float gunLength;
     [SerializeField] private float timeBetweenShots;
     private float timeSinceShot = 1.5f;
 
@@ -25,6 +31,7 @@ public class EnemyRangedAttacking : MonoBehaviour
 
     private void Start()
     {
+        enemyRigidBody = GetComponent<Rigidbody>();
         rangedEnemyAnimator = GetComponentInChildren<Animator>();
         enemyAIManager = GetComponent<EnemyAIManager>();
         enemyFatigue = GetComponent<EnemyFatigue>();
@@ -38,12 +45,19 @@ public class EnemyRangedAttacking : MonoBehaviour
         if (!targetDetectionSystem.targetInVision)
             return;
 
-        if (distanceToTarget <= maximumAttackDistance)
+        if (distanceToTarget <= maximumAttackDistance && distanceToTarget >= gunLength)
         {
             timeSinceShot += Time.deltaTime;
             if (timeSinceShot >= timeBetweenShots)
             {
                 FireGun();
+
+                if(recoilPushBack >= 0.1f)
+                {
+                    recoilDirection = -transform.forward;
+                    enemyRigidBody.AddForce(recoilDirection * recoilPushBack, ForceMode.Impulse);
+                }
+
                 timeSinceShot = 0f;
             }
         }
@@ -52,9 +66,16 @@ public class EnemyRangedAttacking : MonoBehaviour
     public void FireGun()
     {   
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawningPoint.position, bulletSpawningPoint.rotation);
+
         rangedEnemyAnimator.SetTrigger(shootTrigger);
         enemyFatigue.HandleFatigueLoss(fatigueLossValue);
-        SoundFXManager.instance.PlaySoundEffect(shootingAudioClip, transform, 1);
-        bullet.GetComponent<Rigidbody>().velocity = bulletSpawningPoint.forward * bulletSpeed;
+        SoundFXManager.instance.PlaySoundEffect(shootingAudioClip, transform, 0.6f);
+
+        Vector3 targetPosition = new Vector3(enemyAIManager.targetPosition.x, enemyAIManager.targetPosition.y + targetOffset, enemyAIManager.targetPosition.z);
+        Vector3 fireDirection = (targetPosition - bulletSpawningPoint.position).normalized;
+
+        bullet.transform.forward = fireDirection;
+
+        bullet.GetComponent<Rigidbody>().velocity = fireDirection * bulletSpeed;
     }
 }

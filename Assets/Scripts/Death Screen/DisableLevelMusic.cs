@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DisableLevelMusic : MonoBehaviour
 {
-    [SerializeField] private AudioSource levelMusicSource;
+    [SerializeField] private GameObject levelMusicSource;
+    private string levelMusicTag = "Level Music Source";
 
     private void Awake()
     {
-        levelMusicSource.gameObject.SetActive(false);
+        levelMusicSource = GameObject.FindGameObjectWithTag(levelMusicTag);
+        levelMusicSource.SetActive(false);
     }
 }

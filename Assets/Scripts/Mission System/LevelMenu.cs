@@ -14,6 +14,15 @@ public class LevelMenu : MonoBehaviour
 
     private string bestTimeText = "Best Time";
 
+    private CanvasGroup levelMenuCanvasGroup;
+
+    private void Start()
+    {
+        levelMenuCanvasGroup = GetComponent<CanvasGroup>();
+        levelMenuCanvasGroup.interactable = true;
+        levelMenuCanvasGroup.blocksRaycasts = true;
+    }
+
     private void Awake()
     {
         if (levelButtons != null)
@@ -66,6 +75,8 @@ public class LevelMenu : MonoBehaviour
     public void HandleLevelOpening(int levelID)
     {
         string levelName = "Level " + levelID;
+        levelMenuCanvasGroup.interactable = false;
+        levelMenuCanvasGroup.blocksRaycasts = false;
         levelLoader.LoadLevel(levelName);
     }
 

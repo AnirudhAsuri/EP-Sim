@@ -13,7 +13,6 @@ public class CameraSensitivityManager : MonoBehaviour
     public const string Y_SENS_KEY = "CameraYSens";
 
     private CinemachineFreeLook playerCamera;
-    private SettingsMenu settingsMenu;
 
     private static float xSensitivity;
     private static float ySensitivity;
@@ -33,21 +32,22 @@ public class CameraSensitivityManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        xSensitivity = PlayerPrefs.GetFloat(X_SENS_KEY, 300f);
-        ySensitivity = PlayerPrefs.GetFloat(Y_SENS_KEY, 5f);
+        Application.targetFrameRate = 60;
+
+        GetDataFromSettings();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        RefreshReferencesAndApply();
+        if(FindObjectOfType<SettingsMenu>() == null)
+            RefreshReferencesAndApply();
     }
 
     public void RefreshReferencesAndApply()
     {
         playerCamera = FindAnyObjectByType<CinemachineFreeLook>();
-        settingsMenu = FindAnyObjectByType<SettingsMenu>();
 
         GetDataFromSettings();
 
@@ -56,14 +56,8 @@ public class CameraSensitivityManager : MonoBehaviour
 
     private void GetDataFromSettings()
     {
-        if(settingsMenu != null)
-        {
-            xSensitivity = settingsMenu.cameraXSensitivity;
-            ySensitivity = settingsMenu.cameraYSensitivity;
-
-            PlayerPrefs.SetFloat(X_SENS_KEY, xSensitivity);
-            PlayerPrefs.SetFloat(Y_SENS_KEY, ySensitivity);
-        }
+        xSensitivity = PlayerPrefs.GetFloat(X_SENS_KEY, 300f);
+        ySensitivity = PlayerPrefs.GetFloat(Y_SENS_KEY, 5f);
     }
 
     private void ApplyToCamera()

@@ -1985,6 +1985,14 @@ MonoBehaviour:
   movementSpeed: 8
   maxSpeed: 13.5
   rotationSpeed: 10
+  grassMovementSpeed: 0
+  sandMovementSpeed: 6.5
+  icyMovementSpeed: 11
+  defaultMovementSpeed: 8
+  isJumper: 0
+  jumpPower: 0
+  jumpCooldown: 1.5
+  currentFloorType: 0
 --- !u!114 &5252871352139847459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,10 +2041,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a2d925f55cac949a1c667cf7f13903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 80
+  totalHealth: 50
   currentHealth: 0
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}
+  pushBackForce: 0
   hitAudioClip: {fileID: 8300000, guid: 68efe2a371744d44fbbfb7efdff58409, type: 3}
 --- !u!114 &7896386347515706863
 MonoBehaviour:
@@ -2052,6 +2061,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDeadBody: {fileID: 8073929832294859478, guid: e91759a92c3a8384b97021a73731f42a, type: 3}
   crunchSound: {fileID: 8300000, guid: a2ea238bff83b174aa3efb0dd2febb86, type: 3}
+  giantPowerUpProb: 5
+  healthRegenPowerUpProb: 20
+  icePowerUpProb: 0
+  sandPowerUpProb: 0
+  invulnerabilityPowerUpProb: 5
+  speedPowerUpProb: 10
+  nothingProb: 60
 --- !u!114 &8306196678369806300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,3 +2106,4 @@ MonoBehaviour:
   currentFatigue: 0
   fatigueDrainRate: 2
   fatigueRiseRate: 20
+  isInTiredState: 0

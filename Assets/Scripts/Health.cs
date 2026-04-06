@@ -13,5 +13,5 @@ public abstract class Health : MonoBehaviour
         currentHealth = totalHealth;
     }
 
-    public abstract void TakeDamage(float damage);
+    public abstract void TakeDamage(float damage, Vector3 direction, float force);
 }

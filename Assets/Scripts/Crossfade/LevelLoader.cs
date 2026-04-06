@@ -19,8 +19,20 @@ public class LevelLoader : MonoBehaviour
     {
         crossfadeAnimator.SetTrigger(crossfadeStartTrigger);
 
-        yield return new WaitForSeconds(transitionTime);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
-        SceneManager.LoadScene(sceneName);
+        operation.allowSceneActivation = false;
+
+        float timer = 0;
+
+        Resources.UnloadUnusedAssets();
+
+        while (timer < transitionTime || operation.progress < 0.9f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        operation.allowSceneActivation = true;
     }
 }

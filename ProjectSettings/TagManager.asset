@@ -8,6 +8,12 @@ TagManager:
   - Invisible
   - Dust Sprinting
   - Level Music Source
+  - Giant Power Up
+  - Health Regen Power Up
+  - Ice Power Up
+  - Invulnerability Power Up
+  - Speed Power Up
+  - Sand Power Up
   layers:
   - Default
   - TransparentFX
@@ -19,10 +25,10 @@ TagManager:
   - Post Processing
   - Melee Enemy
   - Ranged Enemy
-  - 
-  - 
-  - 
-  - 
+  - Sandy Floor
+  - Grassy Floor
+  - Icy Floor
+  - Power Up
   - 
   - 
   - 

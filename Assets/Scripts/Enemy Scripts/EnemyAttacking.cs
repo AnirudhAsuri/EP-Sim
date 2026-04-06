@@ -93,15 +93,16 @@ public class EnemyAttacking : MonoBehaviour
 
             if(playerHealth != null)
             {
-                playerHealth.TakeDamage(attackDamage);
-                other.attachedRigidbody.AddForce(pushBackMeasure * pushBackDirection, ForceMode.Impulse);
+                playerHealth.TakeDamage(attackDamage, pushBackDirection, pushBackMeasure);
 
                 if(enemyFatigue.currentFatigue != enemyFatigue.totalFatigue)
                 {
                     enemyFatigue.currentFatigue += fatigueAttackRecoveryAmount;
-                }    
+                }
 
-                if(hitParticles != null)
+                PowerUpEffects powerUpEffects = other.GetComponentInChildren<PowerUpEffects>();
+
+                if(hitParticles != null && !powerUpEffects.isInvulnerable)
                 {
                     Vector3 hitPosition = other.ClosestPoint(transform.position);
 

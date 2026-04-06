@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    private ButtonSceneChanger buttonSceneChanger;
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject deathScreen;
     public bool isPaused = false;
@@ -15,6 +16,10 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         pauseInput.action.Enable();
+        pauseMenuUI.SetActive(false);
+        isPaused = false;
+
+        buttonSceneChanger = GetComponent<ButtonSceneChanger>();
     }
 
     private void OnEnable()
@@ -47,5 +52,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void RestartLevel()
+    {
+        buttonSceneChanger.RestartLevel();
+        Time.timeScale = 1f;
     }
 }

@@ -26,7 +26,11 @@ public class TutorialDummyEnemyManager : MonoBehaviour
         {
             HandleNextStepIncrement(); //Current Text Index = 12
             enemyDeath.HandlePlayerHealthRegen();
-            enemyDeath.SwitchBodies();
+
+            Vector3 finalPushbackDirection = enemyHealth.pushBackDirection;
+            float finalPushbackForce = enemyHealth.pushBackForce;
+
+            enemyDeath.SwitchBodies(finalPushbackDirection, finalPushbackForce);
         }
     }
 

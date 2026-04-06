@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public int meleeEnemyLayer = 8;
-    public int rangedEnemyLayer = 9;
+    public int meleeEnemyLayer;
+    public int rangedEnemyLayer;
 
     private EnemyAnimations enemyAnimations;
     private EnemyAIManager enemyAIManager;
@@ -41,11 +41,18 @@ public class EnemyManager : MonoBehaviour
         enemyAttacking = GetComponent<EnemyAttacking>();
         enemyRangedAttacking = GetComponent<EnemyRangedAttacking>();
         enemyFatigue = GetComponent<EnemyFatigue>();
+
+        meleeEnemyLayer = LayerMask.NameToLayer("Melee Enemy");
+        rangedEnemyLayer = LayerMask.NameToLayer("Ranged Enemy");
+
+        if(enemyDeath == null)
+        {
+            Debug.Log("Hull");
+        }
     }
 
     private void FixedUpdate()
     {
-        
         enemyMovement.HandleEnemyMovement(enemyAIManager.movementDirection);
         enemyAnimations.HandleEnemyWalkingAnimation();
         
@@ -90,7 +97,10 @@ public class EnemyManager : MonoBehaviour
 
         if(enemyHealth.currentHealth <= 0)
         {
-            enemyDeath.SwitchBodies();
+            Vector3 finalPushbackDirection = enemyHealth.pushBackDirection;
+            float finalPushbackForce = enemyHealth.pushBackForce;
+
+            enemyDeath.SwitchBodies(finalPushbackDirection, finalPushbackForce);
             enemyDeath.HandlePlayerHealthRegen();
         }
     }

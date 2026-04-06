@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 3591839465672463989}
   - component: {fileID: 928753066607341934}
   - component: {fileID: 4339184753572944134}
+  - component: {fileID: 3126544242757504669}
   m_Layer: 5
   m_Name: Main Menu Canvas
   m_TagString: Untagged
@@ -891,6 +892,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7508d2df3745a434c9abf6d922f8cf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoader: {fileID: 0}
+--- !u!225 &3126544242757504669
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874074179641715041}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8657544685109016508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1014,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -1585031080, guid: 14f281cf468a91b4faee816a3d81ea89, type: 3}
     m_PressedSprite: {fileID: -1062087067, guid: 14f281cf468a91b4faee816a3d81ea89, type: 3}
     m_SelectedSprite: {fileID: 1854906072, guid: 14f281cf468a91b4faee816a3d81ea89, type: 3}
-    m_DisabledSprite: {fileID: -1062087067, guid: 14f281cf468a91b4faee816a3d81ea89, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted

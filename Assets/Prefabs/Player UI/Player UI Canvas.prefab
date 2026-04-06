@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4945115859958715996}
   - component: {fileID: 4397512070213450660}
   - component: {fileID: 2814961417088865696}
+  - component: {fileID: 5914282914695369352}
   m_Layer: 5
   m_Name: Jump Screen Button
   m_TagString: Untagged
@@ -89,6 +90,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Gamepad>/buttonNorth
+--- !u!114 &5914282914695369352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349902417850863290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0f14e9d5fc6e94a9da6cfa7bd60377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popMultiplier: 1.2
+  smoothTime: 0.1
 --- !u!1 &1686770071815465374
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +116,7 @@ GameObject:
   - component: {fileID: 5677113216778561274}
   - component: {fileID: 223714781515666180}
   - component: {fileID: 5118547635257019986}
+  - component: {fileID: 5697925650417589193}
   m_Layer: 5
   m_Name: Left Attack Button
   m_TagString: Untagged
@@ -178,6 +194,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Gamepad>/buttonWest
+--- !u!114 &5697925650417589193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686770071815465374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f5cb4bb82f65d48a4bc71ebec25772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popMultiplier: 1.2
+  smoothTime: 0.1
 --- !u!1 &3712970820081542319
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +295,7 @@ GameObject:
   - component: {fileID: 3459450213910974568}
   - component: {fileID: 8308059879377749341}
   - component: {fileID: 8695966360517360754}
+  - component: {fileID: 1546635508248022385}
   m_Layer: 5
   m_Name: Right Attack Button
   m_TagString: Untagged
@@ -342,6 +373,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Gamepad>/buttonEast
+--- !u!114 &1546635508248022385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984619426251117870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dff82bc1133f074e8798341d661fda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popMultiplier: 1.2
+  smoothTime: 0.1
 --- !u!1 &5242747906881652267
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +634,7 @@ GameObject:
   - component: {fileID: 3033600028840893901}
   - component: {fileID: 5419098262865433164}
   - component: {fileID: 6401331673713870619}
+  - component: {fileID: 1234653813143340196}
   m_Layer: 5
   m_Name: Sprint Key
   m_TagString: Untagged
@@ -666,6 +712,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Gamepad>/buttonSouth
+--- !u!114 &1234653813143340196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6108204405911212145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fd7bb685c37e04ab99db90b68c634e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popMultiplier: 1.2
+  smoothTime: 0.1
 --- !u!1 &6712969200861719120
 GameObject:
   m_ObjectHideFlags: 0

@@ -759,6 +759,7 @@ GameObject:
   - component: {fileID: 2378321369544751223}
   - component: {fileID: 6156755374768188807}
   - component: {fileID: 4529040801490256475}
+  - component: {fileID: 4507298050928683533}
   m_Layer: 5
   m_Name: Death Screen
   m_TagString: Untagged
@@ -876,6 +877,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelMusicSource: {fileID: 0}
+--- !u!225 &4507298050928683533
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559746936722862842}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6788845637490784796
 GameObject:
   m_ObjectHideFlags: 0

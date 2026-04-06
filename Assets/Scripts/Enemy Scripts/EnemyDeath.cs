@@ -15,15 +15,17 @@ public class EnemyDeath : MonoBehaviour
     private bool isDead = false;
 
     private string levelMusicTag = "Level Music Source";
-    private AudioSource levelMusicSource;
-    private float freezeFrameDuration = 0.5f;
     [SerializeField] private AudioClip crunchSound;
 
     private Vector3 deathPushBackDirection;
 
-    private PostProcessVolume postProcessVolume;
-    private Vignette vignette;
-    private Grain grain;
+    [SerializeField] private float giantPowerUpProb;
+    [SerializeField] private float healthRegenPowerUpProb;
+    [SerializeField] private float icePowerUpProb;
+    [SerializeField] private float sandPowerUpProb;
+    [SerializeField] private float invulnerabilityPowerUpProb;
+    [SerializeField] private float speedPowerUpProb;
+    [SerializeField] private float nothingProb;
 
     private void Awake()
     {
@@ -32,16 +34,6 @@ public class EnemyDeath : MonoBehaviour
         enemyCount = FindObjectOfType<EnemyCount>();
 
         GameObject levelMusicSourceObject = GameObject.FindGameObjectWithTag(levelMusicTag);
-        levelMusicSource = levelMusicSourceObject.GetComponent<AudioSource>();
-
-        postProcessVolume = FindAnyObjectByType<PostProcessVolume>();
-        postProcessVolume.profile.TryGetSettings(out vignette);
-        postProcessVolume.profile.TryGetSettings(out grain);
-
-        if (vignette == null)
-        {
-            Debug.Log("Hull");
-        }
     }
 
     private void Start()
@@ -54,7 +46,7 @@ public class EnemyDeath : MonoBehaviour
         playerHealth.currentHealth += enemyHealth.totalHealth * 0.1f;
     }
 
-    public void SwitchBodies()
+    public void SwitchBodies(Vector3 pushDirection, float force)
     {
         if (isDead)
             return;
@@ -62,9 +54,6 @@ public class EnemyDeath : MonoBehaviour
         isDead = true;
 
         GameObject deadBody = Instantiate(enemyDeadBody, transform.position, transform.rotation);
-
-        deathPushBackDirection = new Vector3(enemyHealth.pushBackDirection.x, 0.2f, enemyHealth.pushBackDirection.z);
-
         Rigidbody deadBodyRigidBody = deadBody.GetComponent<Rigidbody>();
 
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
@@ -72,60 +61,15 @@ public class EnemyDeath : MonoBehaviour
             r.enabled = false;
         }
 
-        PlayDeathSound();
+        PowerUpManager.Instance.RevealPowerUp(transform, nothingProb, giantPowerUpProb, 
+            healthRegenPowerUpProb, icePowerUpProb, sandPowerUpProb, invulnerabilityPowerUpProb, speedPowerUpProb);
 
-        if (enemyCount.enemyCount > 1)
-        {
-            StartCoroutine(FreezeFrameAndDestroyObject(freezeFrameDuration));
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        PlayDeathSound();
+        Destroy(gameObject);
     }
 
     private void PlayDeathSound()
     {
         SoundFXManager.instance.PlaySoundEffect(crunchSound, transform, 0.3f);
-    }
-
-    private IEnumerator FreezeFrameAndDestroyObject(float duration)
-    {
-        if(levelMusicSource != null)
-        {
-            levelMusicSource.Pause();
-        }
-
-        if(vignette != null)
-        {
-            vignette.enabled.value = true;
-        }
-        
-        if(grain != null)
-        {
-            grain.enabled.value = true;
-        }
-
-        Time.timeScale = 0.05f;
-        
-        yield return new WaitForSecondsRealtime(duration);
-
-        if(vignette != null)
-        {
-            vignette.enabled.value = false;
-        }
-
-        if (grain != null)
-        {
-            grain.enabled.value = false;
-        }
-
-        if (levelMusicSource != null)
-        {
-            levelMusicSource.Play();
-        }
-
-        Time.timeScale = 1f;
-        Destroy(gameObject);
     }
 }
