@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Menu Scenes/Pre Menu Scene.unity
-    guid: 32aff890c9f4956489541d8d384b664a
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/Main Menu Scene.unity
     guid: b57b2f96c98736f41a0a7b806493d4d6
@@ -22,45 +19,63 @@ EditorBuildSettings:
     guid: 1c196249038cfcb46b9690d200f60c71
   - enabled: 1
     path: Assets/Scenes/Levels/Level 1.unity
-    guid: f98934bbb971b764d91bfa2a816162a1
+    guid: 4c8bb084410c65f4380f671a177a3c9e
   - enabled: 1
     path: Assets/Scenes/Levels/Level 2.unity
-    guid: 35cb885ed7dd58048be79624e8b5bbcf
+    guid: c892042c788657d4b820529ea0f90687
   - enabled: 1
     path: Assets/Scenes/Levels/Level 3.unity
-    guid: b0606423a959005478bd4049f8f5fcea
+    guid: 2002dc464040daf4fa57bbfe9f5d71a1
   - enabled: 1
     path: Assets/Scenes/Levels/Level 4.unity
-    guid: 3de01161651cda249865d2c92bd99cce
+    guid: e0ef2b027cc6e0a4f9444faffc7cce5d
   - enabled: 1
     path: Assets/Scenes/Levels/Level 5.unity
-    guid: 5e7f83dcaa8a58e4b95f7b838a5cf35d
+    guid: f663f3ac12771dc4288ca86726422b74
   - enabled: 1
     path: Assets/Scenes/Levels/Level 6.unity
-    guid: 994806b9f2904ad43a511d129f6a7341
+    guid: 2a9a56233475d6048964b6896d1daf12
   - enabled: 1
     path: Assets/Scenes/Levels/Level 7.unity
-    guid: 8cb16a22451f63043bbb473b410fd706
+    guid: 6d1b8a485d17a634dac38fd811253729
   - enabled: 1
     path: Assets/Scenes/Levels/Level 8.unity
-    guid: 0b4d0f15ac106534ab92fe908008c496
+    guid: dae490b89c8038044800921e593df9cc
   - enabled: 1
     path: Assets/Scenes/Levels/Level 9.unity
-    guid: e07cf6b6fb1e5d3448eaa152ee96086c
+    guid: 7698aa8f335ed8b449ddfdbce0459703
   - enabled: 1
     path: Assets/Scenes/Levels/Level 10.unity
-    guid: 8160eb7d09006cc4aac55170c8cb6bc5
+    guid: 596960e78de7ddf46b27489c4b6d8d33
   - enabled: 1
     path: Assets/Scenes/Levels/Level 11.unity
-    guid: abe1c8d558055294dbc90227f72eb75e
+    guid: 8da9de5f23d594545ba62f846d921033
   - enabled: 1
     path: Assets/Scenes/Levels/Level 12.unity
-    guid: 4b90cebc1f1bf844b820dabe0bbf63c1
+    guid: ff36aa2b341cd634bb63e5fa6ebbbfda
   - enabled: 1
     path: Assets/Scenes/Levels/Level 13.unity
-    guid: f3663c79fbb71414c8e3705bfce22476
+    guid: 6f3d0175411b5b54e9a102d75b1e6387
   - enabled: 1
     path: Assets/Scenes/Levels/Level 14.unity
+    guid: b1ef3ba3cf2232f4c9aa79873061290d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 15.unity
+    guid: 927d3d2b079f24f4294cabceca351746
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 16.unity
+    guid: 9cfdf459b45689949a165b49ca50d866
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 17.unity
+    guid: f2869c1989bf6c346b1ea3e1782243cb
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 18.unity
+    guid: 5b750f3bb2b89e24988d083e13412a6e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 19.unity
+    guid: 5e7f83dcaa8a58e4b95f7b838a5cf35d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 20.unity
     guid: 9633b9ebf932ddc48a1b9eb515630a35
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 8740f129ba0823244bed54c39fcf82b9, type: 2}

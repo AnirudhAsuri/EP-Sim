@@ -38,7 +38,11 @@ public class PlayerManager : MonoBehaviour
             playerMovement.HandlePlayerTurning(playerMovement.movementDir);
         playerGroundCheck.HandleGroundCheck();
         playerAnimations.HandleWalkingAnimations();
-        playerAnimations.HandleGiantAnimations(powerUpEffects.isGiant);
+
+        if(powerUpEffects != null)
+        {
+            playerAnimations.HandleGiantAnimations(powerUpEffects.isGiant);
+        }
     }
 
     private void Update()

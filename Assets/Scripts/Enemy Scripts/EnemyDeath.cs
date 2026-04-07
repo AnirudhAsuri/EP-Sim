@@ -11,7 +11,6 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] private GameObject enemyDeadBody;
     private PlayerHealth playerHealth;
     private EnemyHealth enemyHealth;
-    private EnemyCount enemyCount;
     private bool isDead = false;
 
     private string levelMusicTag = "Level Music Source";
@@ -31,7 +30,6 @@ public class EnemyDeath : MonoBehaviour
     {
         enemyHealth = GetComponent<EnemyHealth>();
         playerHealth = FindObjectOfType<PlayerHealth>();
-        enemyCount = FindObjectOfType<EnemyCount>();
 
         GameObject levelMusicSourceObject = GameObject.FindGameObjectWithTag(levelMusicTag);
     }
@@ -63,6 +61,8 @@ public class EnemyDeath : MonoBehaviour
 
         PowerUpManager.Instance.RevealPowerUp(transform, nothingProb, giantPowerUpProb, 
             healthRegenPowerUpProb, icePowerUpProb, sandPowerUpProb, invulnerabilityPowerUpProb, speedPowerUpProb);
+
+        deadBodyRigidBody.AddForce(pushDirection * force, ForceMode.Impulse);
 
         PlayDeathSound();
         Destroy(gameObject);

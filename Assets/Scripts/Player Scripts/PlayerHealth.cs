@@ -33,6 +33,9 @@ public class PlayerHealth : Health
 
     public override void TakeDamage(float damage, Vector3 direction, float force)
     {
+        if (powerUpEffects.isChanging)
+            return;
+
         if(!powerUpEffects.isInvulnerable)
         {
             screenShakeForce = damage * 0.01f;
@@ -55,7 +58,14 @@ public class PlayerHealth : Health
 
     public void HealthRegenPowerUp(float health)
     {
-        currentHealth += health;
+        if(health + currentHealth > totalHealth)
+        {
+            currentHealth = totalHealth;
+        }
+        else
+        {
+            currentHealth += health;
+        }
     }
 
     public void HandleGiantHealth(float health)

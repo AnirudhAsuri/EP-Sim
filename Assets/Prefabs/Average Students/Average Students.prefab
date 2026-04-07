@@ -1985,7 +1985,7 @@ MonoBehaviour:
   movementSpeed: 8
   maxSpeed: 13.5
   rotationSpeed: 10
-  grassMovementSpeed: 0
+  grassMovementSpeed: 8
   sandMovementSpeed: 6.5
   icyMovementSpeed: 11
   defaultMovementSpeed: 8
@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a2d925f55cac949a1c667cf7f13903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 50
+  totalHealth: 60
   currentHealth: 0
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}

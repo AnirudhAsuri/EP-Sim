@@ -187,7 +187,6 @@ GameObject:
   - component: {fileID: 3944622397429232327}
   - component: {fileID: 1242894379005552002}
   - component: {fileID: 533043042956632691}
-  - component: {fileID: 2706979974223328884}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -538,24 +537,6 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
---- !u!114 &2706979974223328884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933673876311893481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d308c0667389de469f880268bba7693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winManager: {fileID: 0}
-  photoCamera: {fileID: 0}
-  uiDisplay: {fileID: 0}
-  winCanvas: {fileID: 0}
-  flashOverlay: {fileID: 0}
-  levelMusicPlayer: {fileID: 0}
 --- !u!1 &952589175188083150
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,19 +726,20 @@ MonoBehaviour:
   playerRenderer: {fileID: 8755381163779648107}
   giantScaleMultiplier: 2.5
   growthDuration: 1
-  giantTopRig: {x: 3.5, y: 12}
-  giantMiddleRig: {x: 2, y: 15}
-  giantBottomRig: {x: 0.75, y: 12}
+  giantTopRig: {x: 6.5, y: 12}
+  giantMiddleRig: {x: 5, y: 15}
+  giantBottomRig: {x: 3.75, y: 12}
   giantDamage: 14
   giantHealth: 175
-  giantToNormalAudio: {fileID: 0}
+  giantToNormalAudio: {fileID: 8300000, guid: 30ecbb7b8fe43514595530557095358a, type: 3}
+  isChanging: 0
   isGiant: 0
   powerUpSpeedMultiplier: 2
   powerUpSpeedLimitMultiplier: 2
   speedCirclet: {fileID: 2381556259377853822}
   isSpedUp: 0
   invulnerabilityShield: {fileID: 5680951637459669971}
-  isInvulnerability: 0
+  isInvulnerable: 0
   healthRegenValue: 50
   sandMat: {fileID: 2100000, guid: 2989b062701d3cd47a4d8c9dbfb4cc12, type: 2}
   iceMat: {fileID: 2100000, guid: f1b92dd880036864d8e601bbcd6f4be5, type: 2}

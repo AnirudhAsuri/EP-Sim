@@ -1990,7 +1990,7 @@ MonoBehaviour:
   icyMovementSpeed: 16
   defaultMovementSpeed: 12
   isJumper: 1
-  jumpPower: 12
+  jumpPower: 17
   jumpCooldown: 1.5
   currentFloorType: 0
 --- !u!114 &5252871352139847459

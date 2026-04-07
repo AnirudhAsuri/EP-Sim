@@ -2374,7 +2374,7 @@ MonoBehaviour:
   maxSpeed: 14
   rotationSpeed: 10
   grassMovementSpeed: 10
-  sandMovementSpeed: 7
+  sandMovementSpeed: 6
   icyMovementSpeed: 13
   defaultMovementSpeed: 10
   isJumper: 0
@@ -2494,5 +2494,6 @@ MonoBehaviour:
   fatigueLossValue: 20
   recoilPushBack: 0
   minimumMaintainedDistance: 10
+  gunLength: 0
   timeBetweenShots: 2
   shootingAudioClip: {fileID: 8300000, guid: 420157b5afe83fb4482d4d14f965e405, type: 3}

@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a2d925f55cac949a1c667cf7f13903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 35
+  totalHealth: 45
   currentHealth: 0
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}

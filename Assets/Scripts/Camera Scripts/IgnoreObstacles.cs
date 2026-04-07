@@ -12,7 +12,7 @@ public class IgnoreObstacles : MonoBehaviour
 
     private string playerTag = "Player";
 
-    private Dictionary<Renderer, MaterialData> trackedMaterials = new Dictionary<Renderer, MaterialData>();
+    private Dictionary<Renderer, MaterialData[]> trackedMaterials = new Dictionary<Renderer, MaterialData[]>();
 
     private class MaterialData
     {
@@ -23,11 +23,11 @@ public class IgnoreObstacles : MonoBehaviour
 
     private void Start()
     {
-        foreach (var transform in FindObjectsOfType<Transform>())
+        foreach (var t in FindObjectsOfType<Transform>())
         {
-            if (transform.CompareTag(playerTag))
+            if (t.CompareTag(playerTag))
             {
-                playerTransform = transform;
+                playerTransform = t;
                 break;
             }
         }
@@ -50,22 +50,21 @@ public class IgnoreObstacles : MonoBehaviour
 
             if (!trackedMaterials.ContainsKey(rend))
             {
-                // Initial setup: Change Opaque -> Fade mode
                 SetupFadeMaterial(rend);
             }
 
-            // Smoothly fade down
             UpdateAlpha(rend, targetAlpha);
         }
 
-        // Restore materials no longer being hit
         List<Renderer> toRemove = new List<Renderer>();
         foreach (var rend in trackedMaterials.Keys)
         {
             if (!hitsThisFrame.Contains(rend))
             {
                 UpdateAlpha(rend, 1.0f);
-                if (trackedMaterials[rend].currentAlpha >= 0.99f)
+
+                // Check if the first material has returned to opaque to decide when to reset
+                if (trackedMaterials[rend][0].currentAlpha >= 0.99f)
                 {
                     ResetMaterial(rend);
                     toRemove.Add(rend);
@@ -77,43 +76,57 @@ public class IgnoreObstacles : MonoBehaviour
 
     void SetupFadeMaterial(Renderer rend)
     {
-        Material mat = rend.material; // Creates a runtime instance
-        MaterialData data = new MaterialData
+        Material[] mats = rend.materials; // Accesses all 5 materials
+        MaterialData[] dataArray = new MaterialData[mats.Length];
+
+        for (int i = 0; i < mats.Length; i++)
         {
-            originalColor = mat.color,
-            originalRenderQueue = mat.renderQueue,
-            currentAlpha = 1.0f
-        };
+            dataArray[i] = new MaterialData
+            {
+                originalColor = mats[i].color,
+                originalRenderQueue = mats[i].renderQueue,
+                currentAlpha = 1.0f
+            };
 
-        // Standard Shader "Fade" mode settings
-        mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        mat.SetInt("_ZWrite", 0);
-        mat.DisableKeyword("_ALPHATEST_ON");
-        mat.EnableKeyword("_ALPHABLEND_ON");
-        mat.renderQueue = 3000;
+            // Standard Shader "Fade" mode settings for each material
+            mats[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            mats[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            mats[i].SetInt("_ZWrite", 0);
+            mats[i].DisableKeyword("_ALPHATEST_ON");
+            mats[i].EnableKeyword("_ALPHABLEND_ON");
+            mats[i].renderQueue = 3000;
+        }
 
-        trackedMaterials.Add(rend, data);
+        trackedMaterials.Add(rend, dataArray);
     }
 
     void UpdateAlpha(Renderer rend, float goal)
     {
-        MaterialData data = trackedMaterials[rend];
-        data.currentAlpha = Mathf.MoveTowards(data.currentAlpha, goal, fadeSpeed * Time.deltaTime);
-        Color c = rend.material.color;
-        c.a = data.currentAlpha;
-        rend.material.color = c;
+        MaterialData[] dataArray = trackedMaterials[rend];
+        Material[] mats = rend.materials;
+
+        for (int i = 0; i < mats.Length; i++)
+        {
+            dataArray[i].currentAlpha = Mathf.MoveTowards(dataArray[i].currentAlpha, goal, fadeSpeed * Time.deltaTime);
+            Color c = dataArray[i].originalColor;
+            c.a = dataArray[i].currentAlpha;
+            mats[i].color = c;
+        }
     }
 
     void ResetMaterial(Renderer rend)
     {
-        Material mat = rend.material;
-        // Restore to Opaque mode
-        mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
-        mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
-        mat.SetInt("_ZWrite", 1);
-        mat.DisableKeyword("_ALPHABLEND_ON");
-        mat.renderQueue = -1;
-        mat.color = trackedMaterials[rend].originalColor;
+        Material[] mats = rend.materials;
+        MaterialData[] dataArray = trackedMaterials[rend];
+
+        for (int i = 0; i < mats.Length; i++)
+        {
+            mats[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+            mats[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+            mats[i].SetInt("_ZWrite", 1);
+            mats[i].DisableKeyword("_ALPHABLEND_ON");
+            mats[i].renderQueue = -1;
+            mats[i].color = dataArray[i].originalColor;
+        }
     }
 }

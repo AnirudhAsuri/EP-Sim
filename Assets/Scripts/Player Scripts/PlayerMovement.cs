@@ -82,9 +82,12 @@ public class PlayerMovement : MonoBehaviour
     {
         float activeMaxSpeed = maxSpeed;
 
-        if(powerUpEffects.isSpedUp)
+        if(powerUpEffects != null)
         {
-            activeMaxSpeed *= powerUpEffects.powerUpSpeedLimitMultiplier;
+            if (powerUpEffects.isSpedUp)
+            {
+                activeMaxSpeed *= powerUpEffects.powerUpSpeedLimitMultiplier;
+            }
         }
 
         Vector3 playerHorizontalVelocity = new Vector3(playerRigidBody.velocity.x, 0f, playerRigidBody.velocity.z);
@@ -140,10 +143,12 @@ public class PlayerMovement : MonoBehaviour
                 movementSpeed = defaultMovementSpeed;
                 break;
         }
-
-        if(powerUpEffects.isSpedUp)
+        if(powerUpEffects != null)
         {
-            movementSpeed *= powerUpEffects.powerUpSpeedMultiplier;
+            if (powerUpEffects.isSpedUp)
+            {
+                movementSpeed *= powerUpEffects.powerUpSpeedMultiplier;
+            }
         }
     }
 

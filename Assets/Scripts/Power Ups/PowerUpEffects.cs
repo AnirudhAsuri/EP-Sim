@@ -21,33 +21,34 @@ public class PowerUpEffects : MonoBehaviour
     [SerializeField] private Vector2 giantBottomRig;
     public float giantDamage = 14f;
     public float giantHealth = 175f;
-    private float giantDuration = 30f;
+    private float giantDuration = 15f;
     private Coroutine giantTimer;
     [SerializeField] private AudioClip giantToNormalAudio;
+    public bool isChanging = false;
     public bool isGiant = false;
 
     [Header("Speed Power Up")]
     public float powerUpSpeedMultiplier = 2f;
     public float powerUpSpeedLimitMultiplier = 2f;
     [SerializeField] private GameObject speedCirclet;
-    private float speedDuration = 30f;
+    private float speedDuration = 15f;
     private Coroutine speedTimer;
     public bool isSpedUp = false;
 
     [Header("Invulnerability")]
     [SerializeField] private GameObject invulnerabilityShield;
-    private float invulnerabilityDuration = 30f;
+    private float invulnerabilityDuration = 15f;
     private Coroutine invulnerabilityTimer;
     public bool isInvulnerable = false;
 
     [Header("Health Regen")]
-    [SerializeField] private float healthRegenValue = 50f;
+    [SerializeField] private float healthRegenValue = 25f;
 
     [Header("Terrain Negations")]
     private Material defaultMat;
     [SerializeField] private Material sandMat;
     [SerializeField] private Material iceMat;
-    private float ignoreTerrainDuration = 30f;
+    private float ignoreTerrainDuration = 15f;
     private Coroutine ignoreTerrainTimer;
     public bool ignoreSand = false;
     public bool ignoreIce = false;
@@ -187,6 +188,8 @@ public class PowerUpEffects : MonoBehaviour
 
     private IEnumerator ScalePlayerRoutine(Transform target, Vector3 endScale, bool becomingGiant)
     {
+        isChanging = true;
+
         Vector3 startScale = target.localScale;
 
         Vector2 startTop = becomingGiant ? originalTopRig : giantTopRig;
@@ -202,6 +205,7 @@ public class PowerUpEffects : MonoBehaviour
 
         while (elapsedTime < growthDuration)
         {
+
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / growthDuration;
 
@@ -227,6 +231,8 @@ public class PowerUpEffects : MonoBehaviour
 
         target.localScale = endScale;
         currentScaleRoutine = null;
+
+        isChanging = false;
     }
 
     private IEnumerator PowerUpTimer(float duration, System.Action onComplete)
