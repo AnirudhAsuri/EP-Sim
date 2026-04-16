@@ -6,6 +6,7 @@ using Cinemachine;
 public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private GameObject playerDeadBody;
+    private float yOffset = 0.5f;
 
     public CinemachineFreeLook thirdPersonCamera;
 
@@ -16,7 +17,9 @@ public class PlayerDeath : MonoBehaviour
 
     public void SwitchBodies(Vector3 pushDirection, float force)
     {
-        GameObject deadBody = Instantiate(playerDeadBody, transform.position, transform.rotation);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z);
+
+        GameObject deadBody = Instantiate(playerDeadBody, position, transform.rotation);
 
         thirdPersonCamera.Follow = deadBody.transform;
         thirdPersonCamera.LookAt = deadBody.transform;

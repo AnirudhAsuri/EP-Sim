@@ -31,15 +31,25 @@ public class PlayerGroundCheck : MonoBehaviour
     public void HandleGroundCheck()
     {
         float skinWidth = 0.1f;
-        float rayDistance = 0.2f;
+        float rayDistance = 0.3f; // Slightly longer for curves
+        float sphereRadius = 0.3f; // Adjust this to match your player's width
 
-        Vector3 rayStart = transform.position + (Vector3.up * skinWidth);
+        Vector3 rayStart = transform.position + (Vector3.up * (sphereRadius + skinWidth));
         RaycastHit hit;
 
-        // Shoot the ray
-        if (Physics.Raycast(rayStart, Vector3.down, out hit, rayDistance))
+        // We use SphereCast instead of Raycast
+        // It's like dropping a ball to see what it hits
+        if (Physics.SphereCast(rayStart, sphereRadius, Vector3.down, out hit, rayDistance))
         {
-            isGrounded = true;
+            // Check if the slope isn't too steep (optional but helpful)
+            if (Vector3.Angle(hit.normal, Vector3.up) < 45f)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
         }
         else
         {

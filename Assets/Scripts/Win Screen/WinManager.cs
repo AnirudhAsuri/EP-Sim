@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 
 public class WinManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class WinManager : MonoBehaviour
 
     [SerializeField] private GameObject playerUICanvas;
     [SerializeField] private GameObject enemyCountCanvas;
+    public Image flashImage;
 
     public TextMeshProUGUI timeText;
     private float timer;

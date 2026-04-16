@@ -8,14 +8,25 @@ public class VictorySnapshot : MonoBehaviour
 
     public Camera photoCamera;
     public RawImage uiDisplay;
-    public GameObject winCanvas;
+    private GameObject winCanvas;
     public Image flashOverlay;
 
     [SerializeField] private AudioSource levelMusicPlayer;
+    private string levelMusicTag = "Level Music Source";
+
+    private void Awake()
+    {
+        photoCamera = GetComponentInChildren<Camera>();
+        winManager = FindObjectOfType<WinManager>();
+        winCanvas = winManager.gameObject;
+        uiDisplay = winCanvas.GetComponentInChildren<RawImage>(true);
+        flashOverlay = winManager.flashImage;
+        levelMusicPlayer = GameObject.FindWithTag(levelMusicTag).GetComponent<AudioSource>();
+    }
 
     public void TakeVictoryPicture()
     {
-        levelMusicPlayer.gameObject.SetActive(false);
+        levelMusicPlayer.Stop();
 
         flashOverlay.gameObject.SetActive(true);
 

@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 3800531627237108265}
   - component: {fileID: 3220820582342896900}
   - component: {fileID: 193852340306139760}
-  - component: {fileID: 1396811621155229473}
   - component: {fileID: 6247235355586753288}
   - component: {fileID: 7396761431113509350}
   - component: {fileID: 3944622397429232327}
@@ -348,27 +347,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!65 &1396811621155229473
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933673876311893481}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.38223493, y: 0.3506372, z: 0.11423895}
-  m_Center: {x: -0.001347959, y: 1.5378593, z: 0.50819147}
 --- !u!114 &6247235355586753288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,6 +717,7 @@ MonoBehaviour:
   speedCirclet: {fileID: 2381556259377853822}
   isSpedUp: 0
   invulnerabilityShield: {fileID: 5680951637459669971}
+  invulnerabilityDuration: 15
   isInvulnerable: 0
   healthRegenValue: 50
   sandMat: {fileID: 2100000, guid: 2989b062701d3cd47a4d8c9dbfb4cc12, type: 2}
@@ -788,7 +767,6 @@ GameObject:
   - component: {fileID: 3259273361478086531}
   - component: {fileID: 3095164981311842287}
   - component: {fileID: 2846428539190005672}
-  - component: {fileID: 8064339569812071761}
   m_Layer: 3
   m_Name: Left Hand
   m_TagString: Untagged
@@ -862,27 +840,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8064339569812071761
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2603861173670443589}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.50000006
-  m_Center: {x: 0.000000014901147, y: 0.00000011920927, z: -0.0000009536743}
 --- !u!1 &3599822649047510838
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +934,6 @@ GameObject:
   - component: {fileID: 4923065866372688890}
   - component: {fileID: 4633761948859539850}
   - component: {fileID: 4759088305452445529}
-  - component: {fileID: 7937489801802362452}
   m_Layer: 3
   m_Name: Right Hand
   m_TagString: Untagged
@@ -1051,27 +1007,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7937489801802362452
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4130496873288510417}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.50000006
-  m_Center: {x: 0.000000014901147, y: 0.00000011920927, z: -0.0000009536743}
 --- !u!1 &4594896253729877612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1231,7 @@ Transform:
   m_GameObject: {fileID: 6119760662124164603}
   serializedVersion: 2
   m_LocalRotation: {x: 4.6566123e-10, y: 0.97939277, z: 1.1641531e-10, w: -0.20196506}
-  m_LocalPosition: {x: 2.38, y: 1, z: 1.79}
+  m_LocalPosition: {x: 2.38, y: 1.217, z: 1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1332,7 +1267,6 @@ GameObject:
   - component: {fileID: 5824880682330024678}
   - component: {fileID: 7511904123759607268}
   - component: {fileID: 5934811129194047536}
-  - component: {fileID: 4118505581107331420}
   m_Layer: 3
   m_Name: Right Eye
   m_TagString: Untagged
@@ -1406,27 +1340,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4118505581107331420
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632024281105056489}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6939055710410865334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,7 +6424,6 @@ GameObject:
   - component: {fileID: 7303684736726801938}
   - component: {fileID: 2879714796385192661}
   - component: {fileID: 3327247178774327799}
-  - component: {fileID: 3156513113604093757}
   m_Layer: 3
   m_Name: Smile
   m_TagString: Untagged
@@ -6584,27 +6496,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3156513113604093757
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8679136349632255949}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8961384825715906092
 GameObject:
   m_ObjectHideFlags: 0
@@ -6616,7 +6507,6 @@ GameObject:
   - component: {fileID: 3406282186401135452}
   - component: {fileID: 8684787158068906210}
   - component: {fileID: 74329640820288972}
-  - component: {fileID: 5860617184405917655}
   m_Layer: 3
   m_Name: Left Eye
   m_TagString: Untagged
@@ -6690,27 +6580,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5860617184405917655
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8961384825715906092}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9037603258092545070
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,7 +6590,6 @@ GameObject:
   m_Component:
   - component: {fileID: 536892350647364035}
   - component: {fileID: 1127740377698118056}
-  - component: {fileID: 2271269906031010352}
   m_Layer: 3
   m_Name: Snapshot Camera
   m_TagString: Untagged
@@ -6795,63 +6663,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &2271269906031010352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9037603258092545070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 536892350647364035}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 2
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 0
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []

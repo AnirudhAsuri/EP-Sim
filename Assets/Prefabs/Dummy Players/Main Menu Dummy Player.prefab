@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8029700270719475157}
   - component: {fileID: 2230291563519660686}
   - component: {fileID: 6022599240166954123}
-  - component: {fileID: 933215406831662789}
   m_Layer: 3
   m_Name: Left Hand
   m_TagString: Untagged
@@ -85,27 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &933215406831662789
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738208497336441936}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.50000006
-  m_Center: {x: 0.000000014901147, y: 0.00000011920927, z: -0.0000009536743}
 --- !u!1 &1899069201995581721
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +95,6 @@ GameObject:
   - component: {fileID: 1321971620660058831}
   - component: {fileID: 1786337941070862053}
   - component: {fileID: 5506708749790144590}
-  - component: {fileID: 7638537945130899857}
   m_Layer: 3
   m_Name: Right Eye
   m_TagString: Untagged
@@ -191,27 +168,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7638537945130899857
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899069201995581721}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2372326513844694783
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +232,6 @@ GameObject:
   - component: {fileID: 5526852395676520135}
   - component: {fileID: 4648316916292037421}
   - component: {fileID: 5905360024414115752}
-  - component: {fileID: 3220563527854732303}
   m_Layer: 3
   m_Name: Right Hand
   m_TagString: Untagged
@@ -350,27 +305,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3220563527854732303
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4412103039806929909}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.50000006
-  m_Center: {x: 0.000000014901147, y: 0.00000011920927, z: -0.0000009536743}
 --- !u!1 &4702034810114762877
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +316,6 @@ GameObject:
   - component: {fileID: 3470265392612938424}
   - component: {fileID: 4998164788785626674}
   - component: {fileID: 3057769810466940374}
-  - component: {fileID: 3519761190969279264}
   m_Layer: 3
   m_Name: Left Eye
   m_TagString: Untagged
@@ -456,27 +389,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3519761190969279264
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4702034810114762877}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4950680394717941206
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +801,6 @@ GameObject:
   - component: {fileID: 3153435013480175155}
   - component: {fileID: 6807396231766769476}
   - component: {fileID: 1025555086840937808}
-  - component: {fileID: 7136734552991905081}
   - component: {fileID: 6753227808298249011}
   - component: {fileID: 7882925198500976987}
   m_Layer: 3
@@ -1023,6 +934,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  grassLayerInt: 0
+  sandLayerInt: 0
+  iceLayerInt: 0
+  currentFloorType: 0
 --- !u!136 &1025555086840937808
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1046,27 +961,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &7136734552991905081
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7087611597086941951}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.38223493, y: 0.3506372, z: 0.11423895}
-  m_Center: {x: -0.001347959, y: 0.5378593, z: 0.50819147}
 --- !u!114 &6753227808298249011
 MonoBehaviour:
   m_ObjectHideFlags: 0

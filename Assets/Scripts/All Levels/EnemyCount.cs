@@ -11,11 +11,12 @@ public class EnemyCount : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyCountText;
     public int enemyCount;
 
-    [SerializeField] private VictorySnapshot victorySnapshot;
+    private VictorySnapshot victorySnapshot;
 
     private void Start()
     {
         enemyCountText = GetComponentInChildren<TextMeshProUGUI>();
+        victorySnapshot = FindObjectOfType<VictorySnapshot>();
     }
 
     private void Update()
@@ -25,6 +26,9 @@ public class EnemyCount : MonoBehaviour
 
         if(enemyCount == 0)
         {
+            if (victorySnapshot == null)
+                victorySnapshot = FindObjectOfType<VictorySnapshot>();
+
             victorySnapshot.TakeVictoryPicture();
             OnAllEnemiesDefeated?.Invoke();
         }

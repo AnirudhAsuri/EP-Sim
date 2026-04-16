@@ -46,7 +46,7 @@ public class PowerUpItem : MonoBehaviour
                 break;
 
             case Type.Invulnerability:
-                effects.ActivateInvulnerability();
+                effects.ActivateInvulnerability(effects.invulnerabilityDuration);
                 break;
 
             case Type.Sand:

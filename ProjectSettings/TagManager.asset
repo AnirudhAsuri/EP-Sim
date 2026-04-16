@@ -14,6 +14,10 @@ TagManager:
   - Invulnerability Power Up
   - Speed Power Up
   - Sand Power Up
+  - Enemy Spawn
+  - Death Screen
+  - Health Slider
+  - Flash Image
   layers:
   - Default
   - TransparentFX

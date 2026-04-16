@@ -37,7 +37,7 @@ public class PowerUpEffects : MonoBehaviour
 
     [Header("Invulnerability")]
     [SerializeField] private GameObject invulnerabilityShield;
-    private float invulnerabilityDuration = 15f;
+    public float invulnerabilityDuration = 15f;
     private Coroutine invulnerabilityTimer;
     public bool isInvulnerable = false;
 
@@ -55,19 +55,34 @@ public class PowerUpEffects : MonoBehaviour
 
     private Coroutine currentScaleRoutine;
 
+    private void Awake()
+    {
+        // Cache these immediately
+        playerHealth = GetComponentInParent<PlayerHealth>();
+        playerAttacking = GetComponentInParent<PlayerAttacking>();
+        playerUI = GetComponentInParent<PlayerUI>();
+
+        // Set default material
+        if (playerRenderer != null) defaultMat = playerRenderer.material;
+
+        speedCirclet.SetActive(false);
+        invulnerabilityShield.SetActive(false);
+    }
+
     private void Start()
     {
         originalTopRig = new Vector2(thirdPersonCamera.m_Orbits[0].m_Height, thirdPersonCamera.m_Orbits[0].m_Radius);
         originalMiddleRig = new Vector2(thirdPersonCamera.m_Orbits[1].m_Height, thirdPersonCamera.m_Orbits[1].m_Radius);
         originalBottomRig = new Vector2(thirdPersonCamera.m_Orbits[2].m_Height, thirdPersonCamera.m_Orbits[2].m_Radius);
+    }
 
-        playerHealth = GetComponentInParent<PlayerHealth>();
-        playerAttacking = GetComponentInParent<PlayerAttacking>();
-        playerUI = GetComponentInParent<PlayerUI>();
-        speedCirclet.SetActive(false);
-        invulnerabilityShield.SetActive(false);
+    public void SetCameraReference(CinemachineFreeLook cam)
+    {
+        thirdPersonCamera = cam;
 
-        defaultMat = playerRenderer.material;
+        originalTopRig = new Vector2(thirdPersonCamera.m_Orbits[0].m_Height, thirdPersonCamera.m_Orbits[0].m_Radius);
+        originalMiddleRig = new Vector2(thirdPersonCamera.m_Orbits[1].m_Height, thirdPersonCamera.m_Orbits[1].m_Radius);
+        originalBottomRig = new Vector2(thirdPersonCamera.m_Orbits[2].m_Height, thirdPersonCamera.m_Orbits[2].m_Radius);
     }
 
     public void ActivateSpeedPowerUp()
@@ -87,11 +102,11 @@ public class PowerUpEffects : MonoBehaviour
         speedCirclet.SetActive(false);
     }
 
-    public void ActivateInvulnerability()
+    public void ActivateInvulnerability(float duration)
     {
         isInvulnerable = true;
         invulnerabilityShield.SetActive(true);
-        invulnerabilityTimer = StartCoroutine(PowerUpTimer(invulnerabilityDuration, () =>
+        invulnerabilityTimer = StartCoroutine(PowerUpTimer(duration, () =>
         {
             DeactivateInvulnerability();
             invulnerabilityTimer = null;

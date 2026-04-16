@@ -9,7 +9,6 @@ using UnityEngine.Rendering.PostProcessing;
 public class EnemyDeath : MonoBehaviour
 {
     [SerializeField] private GameObject enemyDeadBody;
-    private PlayerHealth playerHealth;
     private EnemyHealth enemyHealth;
     private bool isDead = false;
 
@@ -29,7 +28,6 @@ public class EnemyDeath : MonoBehaviour
     private void Awake()
     {
         enemyHealth = GetComponent<EnemyHealth>();
-        playerHealth = FindObjectOfType<PlayerHealth>();
 
         GameObject levelMusicSourceObject = GameObject.FindGameObjectWithTag(levelMusicTag);
     }
@@ -41,7 +39,10 @@ public class EnemyDeath : MonoBehaviour
 
     public void HandlePlayerHealthRegen()
     {
-        playerHealth.currentHealth += enemyHealth.totalHealth * 0.1f;
+        if(PlayerHealth.Instance != null)
+        {
+            PlayerHealth.Instance.currentHealth += enemyHealth.totalHealth * 0.1f;
+        }
     }
 
     public void SwitchBodies(Vector3 pushDirection, float force)

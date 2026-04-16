@@ -254,7 +254,6 @@ GameObject:
   - component: {fileID: 3957083032935890371}
   - component: {fileID: 6145933259751132971}
   - component: {fileID: 6748195694859335209}
-  - component: {fileID: 2508162588365998896}
   m_Layer: 9
   m_Name: Right Fist
   m_TagString: Untagged
@@ -328,27 +327,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2508162588365998896
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092928818276660872}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1882406768986293824
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +422,6 @@ GameObject:
   - component: {fileID: 8413215106255081344}
   - component: {fileID: 3394035883050121579}
   - component: {fileID: 5002854053474748067}
-  - component: {fileID: 2293506740778382410}
   m_Layer: 9
   m_Name: Frown
   m_TagString: Untagged
@@ -517,27 +494,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2293506740778382410
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033943242177056178}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2073007408481675436
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,9 +505,8 @@ GameObject:
   - component: {fileID: 5800267819725266621}
   - component: {fileID: 7948553874440991247}
   - component: {fileID: 1243455485603938254}
-  - component: {fileID: 631684543561983715}
   m_Layer: 9
-  m_Name: Capsule
+  m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,29 +577,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &631684543561983715
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073007408481675436}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2232044783913337169
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +693,6 @@ GameObject:
   - component: {fileID: 2245465261304950371}
   - component: {fileID: 7119479466148316232}
   - component: {fileID: 4719463765281121712}
-  - component: {fileID: 2515827461208560814}
   m_Layer: 9
   m_Name: 'Firing Barrel '
   m_TagString: Untagged
@@ -835,29 +766,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2515827461208560814
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2371914498516901812}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2693120362442789052
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +810,6 @@ GameObject:
   - component: {fileID: 7585493430988490395}
   - component: {fileID: 4848747494849227472}
   - component: {fileID: 7294113933874688984}
-  - component: {fileID: 701011216527007025}
   m_Layer: 9
   m_Name: Left Eye
   m_TagString: Untagged
@@ -976,27 +883,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &701011216527007025
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810597281666010293}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4103771521791604541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +947,6 @@ GameObject:
   - component: {fileID: 1359272572197028354}
   - component: {fileID: 8304243354749690149}
   - component: {fileID: 2503558966660990874}
-  - component: {fileID: 2693529419652780796}
   m_Layer: 9
   m_Name: Gun Cylinder
   m_TagString: Untagged
@@ -1135,29 +1020,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2693529419652780796
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4230415880196752180}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4236082773232706257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,7 +1031,6 @@ GameObject:
   - component: {fileID: 4811042714362397481}
   - component: {fileID: 2469098774680295347}
   - component: {fileID: 1477631976481183686}
-  - component: {fileID: 2931584815462598706}
   m_Layer: 9
   m_Name: Left Fist
   m_TagString: Untagged
@@ -1243,27 +1104,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2931584815462598706
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4236082773232706257}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4428216597040752727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1115,6 @@ GameObject:
   - component: {fileID: 3176508803306867255}
   - component: {fileID: 2528113890971690709}
   - component: {fileID: 8234448785068498823}
-  - component: {fileID: 5615401570142011679}
   m_Layer: 9
   m_Name: Eyebrow Left
   m_TagString: Untagged
@@ -1348,27 +1187,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5615401570142011679
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4428216597040752727}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4764661237822907834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,7 +1231,6 @@ GameObject:
   - component: {fileID: 8689306257543823410}
   - component: {fileID: 1687048120469156598}
   - component: {fileID: 1127890132457842895}
-  - component: {fileID: 6424906893627464022}
   m_Layer: 9
   m_Name: Right Eyeball
   m_TagString: Untagged
@@ -1486,27 +1303,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6424906893627464022
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4927315747916009745}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5022684933740639543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1314,6 @@ GameObject:
   - component: {fileID: 7578375124050619136}
   - component: {fileID: 2282141534585667053}
   - component: {fileID: 6870275351474820680}
-  - component: {fileID: 7525653555092811071}
   m_Layer: 9
   m_Name: Left Wrist
   m_TagString: Untagged
@@ -1591,27 +1386,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7525653555092811071
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5022684933740639543}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5461783914480053571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1397,6 @@ GameObject:
   - component: {fileID: 1437280999843732832}
   - component: {fileID: 7259806224799454754}
   - component: {fileID: 2115780482317134965}
-  - component: {fileID: 7172270187763906985}
   m_Layer: 9
   m_Name: Eyebrow Right
   m_TagString: Untagged
@@ -1696,27 +1469,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7172270187763906985
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461783914480053571}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5850752817650482302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1515,6 @@ GameObject:
   - component: {fileID: 5204095634057243360}
   - component: {fileID: 1962857514365496297}
   - component: {fileID: 8469228448018299293}
-  - component: {fileID: 4416608257908059372}
   m_Layer: 9
   m_Name: Right Eye
   m_TagString: Untagged
@@ -1837,27 +1588,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4416608257908059372
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6839576439020308708}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7285667348441387338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +1809,6 @@ GameObject:
   - component: {fileID: 3770217643732325078}
   - component: {fileID: 9186104989951993017}
   - component: {fileID: 6592494084413637163}
-  - component: {fileID: 6251128507323589580}
   m_Layer: 9
   m_Name: Left Eyeball
   m_TagString: Untagged
@@ -2152,27 +1881,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6251128507323589580
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7679806057184314706}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7836835953051864272
 GameObject:
   m_ObjectHideFlags: 0

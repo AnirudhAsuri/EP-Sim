@@ -1426,63 +1426,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235563e6f16b2174ba9098268f94253d, type: 3}
---- !u!1001 &1186362688
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1344687527212186742, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_Name
-      value: Giant Power Up Orb
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 72.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486461295666999906, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4f1b552d4b8183a44a81ceae72574927, type: 3}
 --- !u!1 &1333573390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1844,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566062467}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1709204772
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.7403884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 77.789986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750236115968409774, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171176669925742343, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
+      propertyPath: m_Name
+      value: Invulnerability Power Up Orb
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a3dea2ffcd38e8c4cbbbd01e4983ba8d, type: 3}
 --- !u!1001 &1784779598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2692,4 +2692,4 @@ SceneRoots:
   - {fileID: 638900515217350700}
   - {fileID: 1784779598}
   - {fileID: 177833024}
-  - {fileID: 1186362688}
+  - {fileID: 1709204772}

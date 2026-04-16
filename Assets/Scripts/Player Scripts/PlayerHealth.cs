@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class PlayerHealth : Health
 {
+    public static PlayerHealth Instance;
+
     [SerializeField] private CinemachineImpulseSource cinemachineImpulseSource;
     private Rigidbody playerRigidbody;
     private PowerUpEffects powerUpEffects;
@@ -20,14 +22,19 @@ public class PlayerHealth : Health
     [SerializeField] private AudioClip playerHitAudioClip;
     [SerializeField] private AudioClip invulnHitAudioClip;
 
-    private void Start()
+    private void Awake()
     {
+        Instance = this;
+
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
         playerRigidbody = GetComponent<Rigidbody>();
         powerUpEffects = GetComponentInChildren<PowerUpEffects>();
 
         InitialiseTotalHealth();
+    }
 
+    private void Start()
+    {
         defaultHealth = totalHealth;
     }
 
@@ -44,6 +51,11 @@ public class PlayerHealth : Health
             pushBackDirection = direction;
             pushBackForce = force;
             SoundFXManager.instance.PlaySoundEffect(playerHitAudioClip, transform, damage / 100);
+
+            if (currentHealth <= 0)
+            {
+                GetComponent<PlayerUI>().OpenDeathScreen();
+            }
         }
 
         else
