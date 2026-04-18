@@ -12,7 +12,7 @@ public class PlayerRevivalManager : MonoBehaviour
     private GameObject levelMusicObject;
     private AudioSource levelMusicSource;
 
-    private float revivedInvulnerabilityDuration = 8f;
+    [SerializeField] private float revivedInvulnerabilityDuration;
 
     private void Start()
     {
