@@ -101,7 +101,6 @@ public class EnemyManager : MonoBehaviour
             float finalPushbackForce = enemyHealth.pushBackForce;
 
             enemyDeath.SwitchBodies(finalPushbackDirection, finalPushbackForce);
-            enemyDeath.HandlePlayerHealthRegen();
         }
     }
 

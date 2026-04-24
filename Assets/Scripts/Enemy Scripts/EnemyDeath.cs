@@ -52,6 +52,8 @@ public class EnemyDeath : MonoBehaviour
 
         isDead = true;
 
+        HandlePlayerHealthRegen();
+
         GameObject deadBody = Instantiate(enemyDeadBody, transform.position, transform.rotation);
         Rigidbody deadBodyRigidBody = deadBody.GetComponent<Rigidbody>();
 

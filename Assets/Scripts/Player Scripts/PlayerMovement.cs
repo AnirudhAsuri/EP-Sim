@@ -29,10 +29,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isWalking = false;
     public bool isSprinting = false;
 
-    private float sandyMovementSpeed = 8f;
-    private float grassyMovementSpeed = 10f;
-    private float icyMovementSpeed = 13f;
-    private float defaultMovementSpeed = 10f;
+    [SerializeField] private float sandyMovementSpeed;
+    [SerializeField] private float grassyMovementSpeed;
+    [SerializeField] private float icyMovementSpeed;
+    [SerializeField] private float defaultMovementSpeed;
 
     private void Start()
     {

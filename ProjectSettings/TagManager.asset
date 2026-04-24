@@ -18,6 +18,7 @@ TagManager:
   - Death Screen
   - Health Slider
   - Flash Image
+  - Wave Number
   layers:
   - Default
   - TransparentFX

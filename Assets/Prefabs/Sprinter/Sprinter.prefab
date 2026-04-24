@@ -1797,7 +1797,7 @@ MonoBehaviour:
   minimumAttackDistance: 3.5
   attackDamageMultiplier: 1.2
   baseAttackDamage: 5
-  basePushBack: 5
+  basePushBack: 6.25
   pushBackMultiplier: 1.5
   pushBackMeasure: 0
   pushBackDirection: {x: 0, y: 0, z: 0}

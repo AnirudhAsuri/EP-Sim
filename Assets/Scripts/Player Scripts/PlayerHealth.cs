@@ -38,6 +38,11 @@ public class PlayerHealth : Health
         defaultHealth = totalHealth;
     }
 
+    private void Update()
+    {
+        currentHealth = Mathf.Clamp(currentHealth, 0f, 100f);
+    }
+
     public override void TakeDamage(float damage, Vector3 direction, float force)
     {
         if (powerUpEffects.isChanging)

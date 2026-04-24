@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\UI\ButtonSceneSwitcher.cs" />
     <Compile Include="Assets\Scripts\UI\AndroidCameraUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Scripts\PlayerSpawner\PlayerSpawner.cs" />
     <Compile Include="Assets\Scripts\Death Screen\DisableLevelMusic.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -147,7 +148,6 @@
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy AI Self Made\TargetDetectionSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerDeath.cs" />
-    <Compile Include="Assets\Scripts\Endless Mode Scripts\EndlessModeWinScreen.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Audio Manager\AudioManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
@@ -155,7 +155,6 @@
     <Compile Include="Assets\Scripts\UI\SpawnJoystickAtTouch.cs" />
     <Compile Include="Assets\Scripts\Settings Scripts\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\Buttons Pop\JumpButtonPop.cs" />
-    <Compile Include="Assets\Scripts\Endless Mode Scripts\EnemySpawnManager.cs" />
     <Compile Include="Assets\Scripts\General Other Scripts\MoveToSpot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>

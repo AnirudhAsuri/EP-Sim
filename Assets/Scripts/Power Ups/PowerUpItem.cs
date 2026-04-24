@@ -18,10 +18,11 @@ public class PowerUpItem : MonoBehaviour
     [SerializeField] private AudioClip indivisualSoundEffect;
     private float soundFXVolume = 0.5f;
 
+    private bool sameEffect = false;
+
     private void Start()
     {
         particleInstance = powerUpParticles;
-        
     }
 
     private void Update()
@@ -34,10 +35,20 @@ public class PowerUpItem : MonoBehaviour
         switch (powerUpType)
         {
             case Type.Giant:
+                if (effects.isGiant)
+                {
+                    sameEffect = true;
+                    break;
+                }
                 effects.MakeGiant();
                 break;
 
             case Type.Speed:
+                if (effects.isSpedUp)
+                {
+                    sameEffect = true;
+                    break;
+                }
                 effects.ActivateSpeedPowerUp();
                 break;
 
@@ -46,19 +57,32 @@ public class PowerUpItem : MonoBehaviour
                 break;
 
             case Type.Invulnerability:
+                if (effects.isInvulnerable)
+                {
+                    sameEffect = true;
+                    break;
+                }
                 effects.ActivateInvulnerability(effects.invulnerabilityDuration);
                 break;
 
             case Type.Sand:
+                if (effects.ignoreSand)
+                {
+                    sameEffect = true;
+                    break;
+                }
                 effects.ActivateIgnoreSand();
                 break;
 
             case Type.Ice:
+                if (effects.ignoreIce)
+                {
+                    sameEffect = true;
+                    break;
+                }
                 effects.ActivateIgnoreIce();
                 break;
         }
-
-        Destroy(gameObject); // Cleanup
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,9 +90,18 @@ public class PowerUpItem : MonoBehaviour
         if (time < 0.5f)
             return;
 
+
         if(other.CompareTag(playerTag))
         {
             ApplyEffect(other.GetComponentInChildren<PowerUpEffects>());
+
+            if (sameEffect)
+            {
+                sameEffect = false;
+                return;
+            }
+
+            Destroy(gameObject);
 
             SoundFXManager.instance.PlaySoundEffect(powerUpSoundEffect, transform, soundFXVolume);
             SoundFXManager.instance.PlaySoundEffect(indivisualSoundEffect, other.transform, soundFXVolume);

@@ -5,32 +5,35 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
-    [SerializeField] private GameObject deathScreen;
+    private GameObject deathScreen;
     private string deathScreenTag = "Death Screen";
 
     public Slider playerHealthSlider;
     private string healthSliderTag = "Health Slider";
     private PlayerHealth playerHealth;
 
-    private void Start()
+    private void Awake()
     {
-        playerHealth = GetComponent<PlayerHealth>();
-
-        if(deathScreen == null)
+        if (deathScreen == null)
         {
             deathScreen = GameObject.FindGameObjectWithTag(deathScreenTag);
         }
+
+        if (deathScreen == null)
+        {
+            Debug.Log("Null");
+        }
+    }
+
+    private void Start()
+    {
+        playerHealth = GetComponent<PlayerHealth>();
 
         if(playerHealthSlider == null)
         {
             GameObject playerHealthSliderObject = GameObject.FindGameObjectWithTag(healthSliderTag);
 
             playerHealthSlider = playerHealthSliderObject.GetComponent<Slider>();
-        }
-
-        if(deathScreen == null)
-        {
-            Debug.Log("Null");
         }
 
         deathScreen.SetActive(false);

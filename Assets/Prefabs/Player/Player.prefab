@@ -295,6 +295,10 @@ MonoBehaviour:
   minimumDustSpeed: 12
   isWalking: 0
   isSprinting: 0
+  sandyMovementSpeed: 8
+  grassyMovementSpeed: 10
+  icyMovementSpeed: 13
+  defaultMovementSpeed: 10
 --- !u!114 &3800531627237108265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,7 +1257,6 @@ MonoBehaviour:
   winManager: {fileID: 0}
   photoCamera: {fileID: 0}
   uiDisplay: {fileID: 0}
-  winCanvas: {fileID: 0}
   flashOverlay: {fileID: 0}
   levelMusicPlayer: {fileID: 0}
 --- !u!1 &6632024281105056489
